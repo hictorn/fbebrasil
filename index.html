@@ -352,7 +352,11 @@ section{ padding: 84px 0; }
   overflow: hidden; display: flex; flex-direction: column;
   transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease;
 }
-.seg-card:hover{ transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: transparent; }
+/* efeitos de hover só onde existe mouse: em tela de toque o navegador prende o estado
+   no último card tocado, e um card fica sem a cor enquanto os outros continuam tingidos */
+@media (hover: hover) and (pointer: fine){
+  .seg-card:hover{ transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: transparent; }
+}
 .seg-card:focus-visible{ outline: 3px solid var(--gold); outline-offset: 3px; }
 .seg-photo{
   height: 210px; position: relative; overflow: hidden; isolation: isolate;
@@ -373,8 +377,10 @@ section{ padding: 84px 0; }
 .seg-photo--colegio::after{ background: #2b3a72; }
 .seg-photo--tecnico::after{ background: #c2303c; }
 .seg-photo--faculdade::after{ background: #b8860b; }
-.seg-card:hover .seg-photo-img{ filter: none; }
-.seg-card:hover .seg-photo::after{ opacity: 0; }
+@media (hover: hover) and (pointer: fine){
+  .seg-card:hover .seg-photo-img{ filter: none; }
+  .seg-card:hover .seg-photo::after{ opacity: 0; }
+}
 /* degradês de reserva, caso a imagem não carregue */
 .seg-photo--colegio{ background-image: linear-gradient(120deg, var(--navy-deep) 0%, #7a1c22 50%, #8f1620 100%); }
 .seg-photo--tecnico{ background-image: linear-gradient(120deg, #0a1628 0%, var(--navy) 40%, #2a4a6e 100%); }
@@ -404,7 +410,9 @@ section{ padding: 84px 0; }
   font-family: var(--font-display); font-weight: 600; font-size: 14px; color: var(--navy);
   transition: gap .25s ease, color .25s ease;
 }
-.seg-card:hover .seg-link{ gap: 15px; color: var(--red); }
+@media (hover: hover) and (pointer: fine){
+  .seg-card:hover .seg-link{ gap: 15px; color: var(--red); }
+}
 @media (max-width: 980px){
   .seg-grid{ grid-template-columns: repeat(2, 1fr); }
 }
