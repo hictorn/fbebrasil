@@ -283,6 +283,8 @@ ul{ margin: 0; padding: 0; list-style: none; }
   align-self: flex-start;
 }
 .hero-slide h1{ color: var(--white); font-size: clamp(30px, 4.5vw, 50px); font-weight: 700; margin-bottom: 16px; line-height: 0.95; }
+/* no celular o título quebra em 2 linhas e o 0.95 as deixa encavaladas */
+@media (max-width: 700px){ .hero-slide h1{ line-height: 1.12; } }
 .hero-lead{ font-size: 17px; color: rgba(255,255,255,0.8); max-width: 540px; margin-bottom: 28px; }
 /* Prédio da FBE: fica fora do slider, então não se move quando o slide troca */
 /* Ocupa a mesma coluna do conteúdo (1200px), então o prédio acompanha o texto
