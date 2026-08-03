@@ -10,6 +10,23 @@
   gtag('js', new Date());
   gtag('config', 'G-T5VY6DEC5Q');
 </script>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '851652597881424');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=851652597881424&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Faculdade FBE | Cursos de Graduação em Salvador, BA</title>
 <meta name="description" content="Faculdade FBE: cursos de graduação em Direito, Psicologia, Administração, Engenharia Civil, Engenharia de Produção, Engenharia de Computação, Odontologia e Enfermagem. Salvador, BA.">
@@ -802,8 +819,8 @@ h1,h2,h3,h4 { font-family: var(--font-display); color: var(--navy); line-height:
         <p>Cursos no turno noturno, facilitando a conciliação com trabalho e outras atividades do dia a dia.</p>
       </div>
       <div class="about-feature">
-        <h4>✅ Certificação MEC</h4>
-        <p>Faculdade certificada pelo Ministério da Educação com cursos reconhecidos e de qualidade comprovada.</p>
+        <h4>✅ Credenciada pelo MEC</h4>
+        <p>Instituição credenciada pelo Ministério da Educação, com cursos autorizados e de qualidade comprovada.</p>
       </div>
       <div class="about-feature">
         <h4>📚 Atividades extras</h4>
@@ -825,7 +842,7 @@ h1,h2,h3,h4 { font-family: var(--font-display); color: var(--navy); line-height:
       <div class="traj-step">
         <span class="traj-num">01</span>
         <h3>Escolha o curso</h3>
-        <p>Direito, Enfermagem, Odontologia ou Psicologia. Explore o que combina com você.</p>
+        <p>São 8 graduações nas áreas de humanas, exatas e saúde. Explore o que combina com você.</p>
       </div>
       <div class="traj-step">
         <span class="traj-num">02</span>
@@ -1040,7 +1057,7 @@ h1,h2,h3,h4 { font-family: var(--font-display); color: var(--navy); line-height:
         <div class="faq-answer">Todos os cursos da Faculdade FBE são presenciais, oferecidos no turno noturno, no campus do bairro do Imbuí, em Salvador-BA.</div>
       </div>
       <div class="faq-item">
-        <button class="faq-question">A Faculdade FBE é reconhecida pelo MEC?</button>
+        <button class="faq-question">A Faculdade FBE é credenciada pelo MEC?</button>
         <div class="faq-answer">Sim. A Faculdade FBE é credenciada pelo Ministério da Educação (MEC) e todos os seus cursos são devidamente autorizados.</div>
       </div>
       <div class="faq-item">
@@ -1251,7 +1268,7 @@ h1,h2,h3,h4 { font-family: var(--font-display); color: var(--navy); line-height:
 
       <h2>Por que começar sua jornada em Enfermagem?</h2>
       <p>A Enfermagem é uma das profissões mais essenciais e valorizadas da área da saúde, com atuação garantida em hospitais, clínicas, unidades básicas de saúde, home care, indústria farmacêutica e gestão em saúde pública. É um dos cursos com maior empregabilidade do país.</p>
-      <p>A Faculdade FBE oferece uma formação sólida, com laboratórios especializados, manequins de simulação realista e estágio supervisionado em unidades de saúde parceiras, preparando o aluno para o mercado de trabalho e para o exame da OAB da profissão, o COREN.</p>
+      <p>A Faculdade FBE oferece uma formação sólida, com laboratórios especializados, manequins de simulação realista e estágio supervisionado em unidades de saúde parceiras, preparando o aluno para o mercado de trabalho e para o registro no COREN, o conselho da profissão.</p>
 
       <h2>O que você vai estudar</h2>
       <p>A grade curricular do curso de Enfermagem é composta por disciplinas de formação biológica, técnica e humanística:</p>
@@ -2141,6 +2158,10 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(() => {
           heroForm.querySelector('.hf-success').style.display = 'block';
           gtag('event', 'envio_formulario_inscricao', {'formulario': 'banner_vestibular'});
+          if (typeof fbq === 'function') {
+            const cursoLead = heroForm.querySelector('select[name="curso"]');
+            fbq('track', 'Lead', {content_name: cursoLead ? cursoLead.value : '', content_category: 'inscricao_vestibular'});
+          }
           heroForm.reset();
           btn.disabled = false;
           btn.textContent = 'Enviar';
@@ -2166,6 +2187,9 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(() => {
           form.querySelector('.form-success').style.display = 'block';
           gtag('event', 'envio_formulario_contato', {'formulario': 'contato'});
+          if (typeof fbq === 'function') {
+            fbq('track', 'Contact');
+          }
           form.reset();
           btn.disabled = false;
           btn.textContent = 'Enviar';
@@ -2177,6 +2201,43 @@ document.addEventListener('DOMContentLoaded', () => {
           btn.textContent = 'Enviar';
         });
     });
+  }
+
+  // === Abertura de curso via parâmetro na URL (?curso=direito) ===
+  // Usado pelos anúncios: /faculdade/?curso=odontologia abre a página do curso direto.
+  const CURSO_NOME = {
+    'direito': 'Direito',
+    'enfermagem': 'Enfermagem',
+    'odontologia': 'Odontologia',
+    'psicologia': 'Psicologia',
+    'administracao': 'Administração',
+    'eng-civil': 'Engenharia Civil',
+    'eng-producao': 'Engenharia de Produção',
+    'eng-computacao': 'Engenharia de Computação'
+  };
+  const cursoParam = new URLSearchParams(window.location.search).get('curso');
+  if (cursoParam) {
+    const slug = cursoParam.toLowerCase().trim();
+    if (views[slug]) {
+      const nomeCurso = CURSO_NOME[slug];
+      // Abre a view do curso
+      showCurso(slug);
+      // Pré-seleciona o curso no formulário do hero, se existir esse nome no select
+      const selectCurso = document.querySelector('#hero-form select[name="curso"]');
+      if (selectCurso && nomeCurso) {
+        Array.from(selectCurso.options).forEach(opt => {
+          if (opt.text.trim() === nomeCurso) selectCurso.value = opt.value || opt.text;
+        });
+      }
+      // Mede a visualização por curso no GA4
+      if (typeof gtag === 'function') {
+        gtag('event', 'view_curso', {'curso': nomeCurso, 'origem': 'url'});
+      }
+      // Pixel da Meta: mede a visualização por curso
+      if (typeof fbq === 'function') {
+        fbq('track', 'ViewContent', {content_name: nomeCurso, content_category: 'curso'});
+      }
+    }
   }
 });
 </script>
