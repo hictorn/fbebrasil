@@ -2095,18 +2095,25 @@ document.addEventListener('DOMContentLoaded', () => {
     'eng-computacao': document.getElementById('view-eng-computacao')
   };
 
-  function showCurso(curso) {
+  function showCurso(curso, updateUrl) {
     viewHome.style.display = 'none';
     Object.values(views).forEach(v => v.style.display = 'none');
     if (views[curso]) {
       views[curso].style.display = '';
       window.scrollTo(0, 0);
+      if (updateUrl !== false) {
+        const novaUrl = window.location.pathname + '?curso=' + curso;
+        history.pushState({ curso: curso }, '', novaUrl);
+      }
     }
   }
 
-  function showHome(scrollTo) {
+  function showHome(scrollTo, updateUrl) {
     Object.values(views).forEach(v => v.style.display = 'none');
     viewHome.style.display = '';
+    if (updateUrl !== false) {
+      history.pushState({ curso: null }, '', window.location.pathname);
+    }
     if (scrollTo) {
       const el = document.getElementById(scrollTo);
       if (el) setTimeout(() => el.scrollIntoView({ behavior: 'smooth' }), 30);
@@ -2122,6 +2129,16 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       showCurso(link.dataset.curso);
     });
+  });
+
+  // Botão voltar/avançar do navegador: sincroniza a view com a URL
+  window.addEventListener('popstate', () => {
+    const cursoAtual = new URLSearchParams(window.location.search).get('curso');
+    if (cursoAtual && views[cursoAtual]) {
+      showCurso(cursoAtual, false);
+    } else {
+      showHome(null, false);
+    }
   });
 
   // Links de voltar (breadcrumb e CTA)
@@ -2221,7 +2238,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (views[slug]) {
       const nomeCurso = CURSO_NOME[slug];
       // Abre a view do curso
-      showCurso(slug);
+      showCurso(slug, false);
       // Pré-seleciona o curso no formulário do hero, se existir esse nome no select
       const selectCurso = document.querySelector('#hero-form select[name="curso"]');
       if (selectCurso && nomeCurso) {
