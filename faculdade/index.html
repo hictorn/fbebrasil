@@ -2108,6 +2108,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  function scrollComCompensacao(el) {
+    const header = document.querySelector('.site-header');
+    const offset = header ? header.getBoundingClientRect().height : 0;
+    const y = el.getBoundingClientRect().top + window.pageYOffset - offset - 12;
+    window.scrollTo({ top: Math.max(y, 0), behavior: 'smooth' });
+  }
+
   function showHome(scrollTo, updateUrl) {
     Object.values(views).forEach(v => v.style.display = 'none');
     viewHome.style.display = '';
@@ -2116,7 +2123,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     if (scrollTo) {
       const el = document.getElementById(scrollTo);
-      if (el) setTimeout(() => el.scrollIntoView({ behavior: 'smooth' }), 30);
+      if (el) setTimeout(() => scrollComCompensacao(el), 30);
       else window.scrollTo(0, 0);
     } else {
       window.scrollTo(0, 0);
