@@ -142,6 +142,12 @@ a[href^="tel:"], a[x-apple-data-detectors]{ color: inherit !important; text-deco
 .breadcrumb a:hover{ color: var(--white); }
 .course-badge-hero{ display: inline-block; background: var(--navy-soft); color: var(--white); font-size: 10px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 5px 12px; border-radius: 4px; margin-bottom: 14px; border: 1px solid rgba(255,255,255,0.2); }
 .course-hero h1{ color: var(--white); font-size: clamp(28px, 3.6vw, 42px); margin-bottom: 16px; }
+.course-hero h1 .title-mobile{ display: none; }
+.course-hero h1 .title-mobile .accent-script{ display: inline-block; margin-top: -8px; line-height: 1; }
+@media (max-width: 640px){
+  .course-hero h1 .title-desktop{ display: none; }
+  .course-hero h1 .title-mobile{ display: inline; line-height: 1.25; }
+}
 .course-hero h1 .accent-script{ color: #FFD166; }
 .course-hero .lead{ font-size: 15px; color: rgba(255,255,255,0.78); line-height: 1.7; max-width: 640px; }
 .course-hero-tags{ display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
@@ -329,7 +335,10 @@ a[href^="tel:"], a[x-apple-data-detectors]{ color: inherit !important; text-deco
   <div class="container">
     <div class="breadcrumb"><a href="/tecnico/">Início</a> › Cursos livres › Eletricista Residencial para Mulheres</div>
     <span class="course-badge-hero">Curso Livre · 100 horas</span>
-    <h1>Curso de Eletricista Residencial <span class="accent-script">para Mulheres</span></h1>
+    <h1>
+      <span class="title-desktop">Curso de Eletricista Residencial <span class="accent-script">para Mulheres</span></span>
+      <span class="title-mobile">Curso de<br>Eletricista Residencial<br><span class="accent-script">para Mulheres</span></span>
+    </h1>
     <p class="lead">Chega de depender de eletricista para cada tomada, chuveiro ou lâmpada. Em 100 horas, com muito mais prática do que teoria, você vai da primeira ferramenta ao quadro de disjuntores para cuidar da sua casa ou começar uma nova renda.</p>
     <div class="course-hero-tags">
       <span><em>🕑</em>Turno vespertino</span>
