@@ -180,7 +180,7 @@ a[href^="tel:"], a[x-apple-data-detectors]{ color: inherit !important; text-deco
 .detail-cards .dc span{ font-size: 14px; color: var(--text-light); line-height: 1.45; }
 
 /* tabela de horário */
-.sched{ display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin: 6px 0 12px; }
+.sched{ display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; margin: 6px 0 12px; }
 @media (max-width: 620px){ .sched{ grid-template-columns: repeat(2, 1fr); } .sched-cell--break{ grid-column: 1 / -1; } }
 .sched-cell{ background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 14px 12px; text-align: center; }
 .sched-cell .aula{ font-size: 11px; text-transform: uppercase; letter-spacing: .04em; color: var(--red); font-weight: 700; font-family: var(--font-display); }
@@ -362,7 +362,7 @@ a[href^="tel:"], a[x-apple-data-detectors]{ color: inherit !important; text-deco
 
       <div class="hl-card">
         <span class="hl-num">100h</span>
-        <span class="hl-lbl">de carga horária total, em 25 aulas de 4 horas, de segunda a sexta</span>
+        <span class="hl-lbl">de carga horária total, em 20 aulas de 5 horas, de segunda a sexta</span>
       </div>
 
       <h2>Para quem é o curso</h2>
@@ -436,22 +436,23 @@ a[href^="tel:"], a[x-apple-data-detectors]{ color: inherit !important; text-deco
 
       <h2 id="cronograma">Como funcionam as aulas</h2>
       <div class="detail-cards">
-        <div class="dc"><div class="ic">📅</div><div><strong>Início e término</strong><span>De 05 de outubro a 12 de novembro de 2026.</span></div></div>
-        <div class="dc"><div class="ic">🕑</div><div><strong>Turno vespertino</strong><span>Das 14h às 18h20, de segunda a sexta.</span></div></div>
+        <div class="dc"><div class="ic">📅</div><div><strong>Início e término</strong><span>De 05 de outubro a 05 de novembro de 2026.</span></div></div>
+        <div class="dc"><div class="ic">🕑</div><div><strong>Turno vespertino</strong><span>Das 14h às 18h30, de segunda a sexta.</span></div></div>
         <div class="dc"><div class="ic">🎓</div><div><strong>Modalidade</strong><span>100% presencial, com laboratório prático.</span></div></div>
         <div class="dc"><div class="ic">📍</div><div><strong>Local</strong><span>FBE, Rua Adhemar Pinheiro Lemos, 1617, Imbuí, Salvador BA.</span></div></div>
       </div>
       <div class="sched">
-        <div class="sched-cell"><div class="aula">1º tempo</div><div class="hora">14h ▸ 15h</div></div>
-        <div class="sched-cell"><div class="aula">2º tempo</div><div class="hora">15h ▸ 16h</div></div>
-        <div class="sched-cell sched-cell--break" style="background:#FFF7F3;border-color:var(--red)"><div class="aula">Intervalo</div><div class="hora" style="color:var(--red-dark)">16h ▸ 16h20</div></div>
-        <div class="sched-cell"><div class="aula">3º tempo</div><div class="hora">16h20 ▸ 17h20</div></div>
-        <div class="sched-cell"><div class="aula">4º tempo</div><div class="hora">17h20 ▸ 18h20</div></div>
+        <div class="sched-cell"><div class="aula">1º tempo</div><div class="hora">14h ▸ 14h50</div></div>
+        <div class="sched-cell"><div class="aula">2º tempo</div><div class="hora">14h50 ▸ 15h40</div></div>
+        <div class="sched-cell"><div class="aula">3º tempo</div><div class="hora">15h40 ▸ 16h30</div></div>
+        <div class="sched-cell sched-cell--break" style="background:#FFF7F3;border-color:var(--red)"><div class="aula">Intervalo</div><div class="hora" style="color:var(--red-dark)">16h30 ▸ 16h50</div></div>
+        <div class="sched-cell"><div class="aula">4º tempo</div><div class="hora">16h50 ▸ 17h40</div></div>
+        <div class="sched-cell"><div class="aula">5º tempo</div><div class="hora">17h40 ▸ 18h30</div></div>
       </div>
-      <p class="sched-note">Quatro tempos de aula por dia, de <b>segunda a sexta-feira</b>.</p>
+      <p class="sched-note">Cinco tempos de aula por dia, de <b>segunda a sexta-feira</b>.</p>
 
       <button class="cal-toggle" type="button">
-        <span>Ver cronograma completo<span class="cal-toggle-sub">Todas as 25 datas de aula, uma por uma</span></span>
+        <span>Ver cronograma completo<span class="cal-toggle-sub">Todas as 20 datas de aula, uma por uma</span></span>
         <span class="icon">+</span>
       </button>
       <div class="cal-panel">
@@ -477,11 +478,6 @@ a[href^="tel:"], a[x-apple-data-detectors]{ color: inherit !important; text-deco
             <div class="cal-cell"><div class="n">Aula 18</div><div class="d">03/11</div></div>
             <div class="cal-cell"><div class="n">Aula 19</div><div class="d">04/11</div></div>
             <div class="cal-cell"><div class="n">Aula 20</div><div class="d">05/11</div></div>
-            <div class="cal-cell"><div class="n">Aula 21</div><div class="d">06/11</div></div>
-            <div class="cal-cell"><div class="n">Aula 22</div><div class="d">09/11</div></div>
-            <div class="cal-cell"><div class="n">Aula 23</div><div class="d">10/11</div></div>
-            <div class="cal-cell"><div class="n">Aula 24</div><div class="d">11/11</div></div>
-            <div class="cal-cell"><div class="n">Aula 25</div><div class="d">12/11</div></div>
           </div>
           <p class="sched-note">Datas sujeitas a pequenos ajustes de calendário. Confirme com a secretaria no ato da matrícula.</p>
         </div>
@@ -513,7 +509,7 @@ a[href^="tel:"], a[x-apple-data-detectors]{ color: inherit !important; text-deco
         </div>
         <div class="faq-item">
           <button class="faq-question">Qual a duração e a carga horária?</button>
-          <div class="faq-answer">São 100 horas no total, em aulas de 4 horas por dia, de segunda a sexta, no turno vespertino. A turma vai de 05 de outubro a 12 de novembro de 2026.</div>
+          <div class="faq-answer">São 100 horas no total, em aulas de 5 horas por dia, de segunda a sexta, no turno vespertino. A turma vai de 05 de outubro a 05 de novembro de 2026.</div>
         </div>
         <div class="faq-item">
           <button class="faq-question">Recebo certificado?</button>
@@ -545,8 +541,8 @@ a[href^="tel:"], a[x-apple-data-detectors]{ color: inherit !important; text-deco
         <a href="https://wa.me/557141010266?text=Ol%C3%A1!%20Tenho%20interesse%20no%20Curso%20de%20Eletricista%20Residencial%20para%20Mulheres." target="_blank" class="sc-cta sc-cta--wa" onclick="gtag('event', 'clique_whatsapp', {'origem': 'sidebar'})">Tirar dúvidas no WhatsApp</a>
         <ul class="sc-info">
           <li><span class="ic">📅</span> Início: 05 de outubro de 2026</li>
-          <li><span class="ic">🕑</span> Vespertino, 14h às 18h20</li>
-          <li><span class="ic">⏱️</span> 100 horas (25 aulas de 4h)</li>
+          <li><span class="ic">🕑</span> Vespertino, 14h às 18h30</li>
+          <li><span class="ic">⏱️</span> 100 horas (20 aulas de 5h)</li>
           <li><span class="ic">🔧</span> 60% de aulas práticas</li>
           <li><span class="ic">🎓</span> Presencial, com certificado</li>
           <li><span class="ic ic-card">💳</span> À vista com condição especial</li>
