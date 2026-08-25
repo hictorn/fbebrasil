@@ -181,7 +181,7 @@ a[href^="tel:"], a[x-apple-data-detectors]{ color: inherit !important; text-deco
 
 /* tabela de horário */
 .sched{ display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; margin: 6px 0 12px; }
-@media (max-width: 620px){ .sched{ grid-template-columns: repeat(2, 1fr); } .sched-cell--break{ grid-column: 1 / -1; } }
+@media (max-width: 620px){ .sched{ grid-template-columns: repeat(2, 1fr); } }
 .sched-cell{ background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 14px 12px; text-align: center; }
 .sched-cell .aula{ font-size: 11px; text-transform: uppercase; letter-spacing: .04em; color: var(--red); font-weight: 700; font-family: var(--font-display); }
 .sched-cell .hora{ font-family: var(--font-display); font-weight: 700; color: var(--navy); font-size: 15px; margin-top: 4px; }
@@ -639,15 +639,20 @@ document.addEventListener('DOMContentLoaded', () => {
   // Cronograma completo (toggle fechado por padrão)
   const calToggle = document.querySelector('.cal-toggle');
   if (calToggle) {
+    const calPanel = calToggle.nextElementSibling;
     calToggle.addEventListener('click', () => {
-      const panel = calToggle.nextElementSibling;
       const isOpen = calToggle.classList.contains('open');
       if (isOpen) {
         calToggle.classList.remove('open');
-        panel.style.maxHeight = null;
+        calPanel.style.maxHeight = null;
       } else {
         calToggle.classList.add('open');
-        panel.style.maxHeight = panel.scrollHeight + 'px';
+        calPanel.style.maxHeight = calPanel.scrollHeight + 'px';
+      }
+    });
+    window.addEventListener('resize', () => {
+      if (calToggle.classList.contains('open')) {
+        calPanel.style.maxHeight = calPanel.scrollHeight + 'px';
       }
     });
   }
