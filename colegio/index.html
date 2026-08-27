@@ -1993,6 +1993,9 @@ document.addEventListener('DOMContentLoaded',()=>{
     document.querySelectorAll('.nav-drop[open]').forEach(d=>{
       if(!d.contains(e.target))d.removeAttribute('open');
     });
+    if(n.classList.contains('open')&&!e.target.closest('#mainNav')&&!e.target.closest('#navToggle')){
+      closeNav();
+    }
   });
 
   document.querySelectorAll('.faq-question').forEach(b=>{b.addEventListener('click',()=>{const a=b.nextElementSibling,o=b.classList.contains('open');document.querySelectorAll('.faq-question').forEach(x=>{x.classList.remove('open');x.nextElementSibling.classList.remove('open')});if(!o){b.classList.add('open');a.classList.add('open')}})});
