@@ -50,6 +50,7 @@ body {
   color: var(--text);
   background: var(--bg);
 }
+html.nav-locked, body.nav-locked { overflow: hidden; height: 100%; }
 a { text-decoration: none; color: inherit; }
 ul { list-style: none; margin: 0; padding: 0; }
 img { display: block; max-width: 100%; }
@@ -94,6 +95,7 @@ h1,h2,h3,h4 { font-family: var(--font-display); color: var(--navy); line-height:
 .main-nav .disabled { font-size: 15px; font-weight: 400; letter-spacing: 0.01em; color: rgba(30,38,74,0.4); font-family: var(--font-body); padding: 6px 12px; cursor: not-allowed; user-select: none; }
 .nav-drop { position: relative; }
 .nav-drop>summary::-webkit-details-marker { display: none; }
+.nav-drop>summary::marker { content: ""; display: none; }
 .nav-drop[open]>summary { color: var(--red); background: var(--bg-alt); }
 .nav-drop-menu { position: absolute; top: calc(100% + 4px); left: 0; min-width: 220px; background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-lg); padding: 6px; z-index: 200; }
 .nav-drop-menu a { display: block; padding: 10px 14px; font-size: 13px; font-weight: 400; color: var(--text); border-radius: var(--radius-sm); transition: background .15s, color .15s; }
@@ -101,18 +103,21 @@ h1,h2,h3,h4 { font-family: var(--font-display); color: var(--navy); line-height:
 .header-cta { font-family: var(--font-display); font-weight: 600; font-size: 14px; padding: 13px 28px; border-radius: 8px; background: var(--red); color: var(--white); border: 2px solid var(--red); transition: background .2s ease, transform .2s ease; white-space: nowrap; }
 .header-cta:hover { background: var(--red-hover); transform: translateY(-2px); }
 .main-nav > a.nav-cta-mobile { display: none; }
-.nav-toggle { display: none; background: none; border: none; font-size: 26px; color: var(--navy); cursor: pointer; }
+.nav-toggle { display: none; background: none; border: none; font-size: 26px; color: var(--navy); cursor: pointer; z-index: 95; }
 @media (max-width: 860px) {
   .main-nav {
-    position: fixed; top: 108px; left: 0; right: 0; background: var(--white);
+    position: fixed; top: var(--header-h, 108px); left: 0; right: 0; background: var(--white);
     flex-direction: column; align-items: flex-start; gap: 0; padding: 12px 24px 20px;
-    border-bottom: 1px solid var(--border); transform: translateY(-140%); transition: transform .3s ease; z-index: 90;
+    border-bottom: 1px solid var(--border); z-index: 90;
+    max-height: calc(100vh - var(--header-h, 108px)); overflow-y: auto; -webkit-overflow-scrolling: touch;
+    visibility: hidden; opacity: 0; transition: opacity .2s ease, visibility 0s linear .2s;
   }
-  .main-nav.open { transform: translateY(0); }
+  .main-nav.open { visibility: visible; opacity: 1; transition: opacity .2s ease; }
+  .nav-drop { width: 100%; }
   .main-nav>a, .nav-drop>summary,
-  .main-nav .disabled { width: 100%; padding: 14px 0; border-bottom: 1px solid var(--border); border-radius: 0; }
-  .nav-drop-menu { position: static; box-shadow: none; border: none; padding: 0 0 0 16px; min-width: auto; }
-  .nav-drop-menu a { padding: 12px 0; border-bottom: 1px solid var(--border); border-radius: 0; font-size: 14px; }
+  .main-nav .disabled { width: 100%; box-sizing: border-box; padding: 14px 0; border-bottom: 1px solid var(--border); border-radius: 0; }
+  .nav-drop-menu { position: static; box-shadow: none; border: none; padding: 0; min-width: auto; }
+  .nav-drop-menu a { padding: 12px 0 12px 16px; border-bottom: 1px solid var(--border); border-radius: 0; font-size: 14px; }
   .nav-toggle { display: block; }
   .header-cta { display: none; }
   .main-nav > a.nav-cta-mobile { display: block; color: var(--red); font-weight: 700; }
@@ -648,7 +653,7 @@ a.loc-mini-card:hover{border-color:var(--navy);background:var(--white);box-shado
   .topbar-inner{flex-wrap:nowrap}
   .topbar-btn{font-size:12.5px;padding:16px 8px;letter-spacing:.01em}
   .tb-desktop{display:none}.tb-mobile{display:inline}
-  .main-nav{top:82px;padding:8px 16px 16px}
+  .main-nav{padding:8px 16px 16px}
   .section{padding:48px 0}
   .section-head{margin-bottom:28px}.section-head p{font-size:15px}
   .adm-hero-inner{min-height:0;padding:36px 0}
@@ -1886,9 +1891,47 @@ a.loc-mini-card:hover{border-color:var(--navy);background:var(--white);box-shado
 <script>
 document.addEventListener('DOMContentLoaded',()=>{
   const t=document.getElementById('navToggle'),n=document.getElementById('mainNav');
-  if(t){t.addEventListener('click',()=>{n.classList.toggle('open');t.textContent=n.classList.contains('open')?'\u2715':'\u2630'})}
 
-  function closeNav(){if(n)n.classList.remove('open');if(t)t.textContent='\u2630';document.querySelectorAll('.nav-drop[open]').forEach(d=>d.removeAttribute('open'))}
+  // Mantém o menu mobile começando exatamente onde o header (topbar+logo) termina,
+  // em vez de um valor fixo em px que não bate em todo breakpoint/dispositivo.
+  const headerEl=document.querySelector('.site-header');
+  function syncHeaderH(){
+    if(headerEl)document.documentElement.style.setProperty('--header-h',headerEl.getBoundingClientRect().bottom+'px');
+  }
+  syncHeaderH();
+  window.addEventListener('resize',syncHeaderH);
+  window.addEventListener('orientationchange',syncHeaderH);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(syncHeaderH);
+
+  let navScrollY = 0;
+  function lockScroll(){
+    navScrollY = window.scrollY;
+    document.documentElement.classList.add('nav-locked');
+    document.body.classList.add('nav-locked');
+  }
+  function unlockScroll(){
+    if(!document.body.classList.contains('nav-locked'))return;
+    document.documentElement.classList.remove('nav-locked');
+    document.body.classList.remove('nav-locked');
+    window.scrollTo({top:navScrollY,left:0,behavior:'instant'});
+  }
+  // Reforço pra touch (iOS): bloqueia o arraste da página por trás do menu,
+  // deixando passar apenas o scroll dentro do próprio menu (#mainNav).
+  document.addEventListener('touchmove',(e)=>{
+    if(document.body.classList.contains('nav-locked')&&!e.target.closest('#mainNav')){
+      e.preventDefault();
+    }
+  },{passive:false});
+
+  if(t){t.addEventListener('click',()=>{
+    syncHeaderH();
+    n.classList.toggle('open');
+    const isOpen=n.classList.contains('open');
+    t.textContent=isOpen?'\u2715':'\u2630';
+    if(isOpen)lockScroll();else unlockScroll();
+  })}
+
+  function closeNav(){if(n)n.classList.remove('open');if(t)t.textContent='\u2630';unlockScroll();document.querySelectorAll('.nav-drop[open]').forEach(d=>d.removeAttribute('open'))}
 
   // ═══ ROTEAMENTO POR URL (?pagina=), mesmo padrão do ?curso= da Faculdade ═══
   const PAGINA_SLUGS=['admissao','enem','esportes','estrutura','fundamental','galeria','laboratorios','localizacao','medio','proposta','sae'];
