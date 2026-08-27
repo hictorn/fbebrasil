@@ -154,10 +154,11 @@ h1,h2,h3,h4 { font-family: var(--font-display); color: var(--navy); line-height:
   background: linear-gradient(120deg, var(--navy-deep), var(--navy) 50%, var(--red-dark));
   color: var(--white);
   min-height: 540px;
+  padding: 56px 0;
   display: flex; align-items: center; justify-content: center;
 }
 .hero .container { position: relative; z-index: 2; }
-.hero-split { display: grid; grid-template-columns: 1fr 400px; gap: 48px; align-items: center; }
+.hero-split { display: grid; grid-template-columns: 1fr 520px; gap: 48px; align-items: center; }
 .hero-content { max-width: 680px; }
 .hero-form-card {
   background: var(--white); border-radius: var(--radius); padding: 28px 24px;
@@ -169,12 +170,13 @@ h1,h2,h3,h4 { font-family: var(--font-display); color: var(--navy); line-height:
 }
 .hf-row { margin-bottom: 12px; }
 .hf-row label { display: block; font-family: var(--font-display); font-weight: 600; font-size: 13px; color: var(--navy); margin-bottom: 5px; }
-.hf-row input, .hf-row select {
+.hf-row input, .hf-row select, .hf-row textarea {
   width: 100%; padding: 10px 12px; border: 1px solid var(--border); border-radius: var(--radius-sm);
   font-family: var(--font-body); font-size: 14px; color: var(--text); outline: none;
   transition: border-color .2s ease; background: var(--bg);
 }
-.hf-row input:focus, .hf-row select:focus { border-color: var(--navy); }
+.hf-row input:focus, .hf-row select:focus, .hf-row textarea:focus { border-color: var(--navy); }
+.hf-row textarea { min-height: 90px; resize: vertical; }
 .hf-row-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 @media (max-width: 860px) {
   .hero-split { grid-template-columns: 1fr; }
@@ -717,9 +719,9 @@ h1,h2,h3,h4 { font-family: var(--font-display); color: var(--navy); line-height:
       <a href="#cursos" class="js-back-home" data-scroll="cursos">Cursos</a>
       <a href="#ingresso" class="js-back-home" data-scroll="ingresso">Ingresso</a>
       <span class="nav-disabled">Blog FBE</span>
-      <a href="#contato" class="js-back-home" data-scroll="contato">Contato</a>
+      <a href="#topo" class="js-back-home" data-scroll="topo">Contato</a>
     </nav>
-    <a href="#contato" class="btn btn-primary header-cta js-back-home" data-scroll="contato">Vestibular 2026.2</a>
+    <a href="#topo" class="btn btn-primary header-cta js-back-home" data-scroll="topo">Vestibular 2026.2</a>
     <button class="nav-toggle" aria-label="Abrir menu">☰</button>
   </div>
 </header>
@@ -755,31 +757,37 @@ h1,h2,h3,h4 { font-family: var(--font-display); color: var(--navy); line-height:
               <input type="email" name="email" placeholder="seu@email.com" required>
             </div>
           </div>
-          <div class="hf-row">
-            <label>Curso *</label>
-            <select name="curso" required>
-              <option value="">Selecione um curso</option>
-              <option>Administração</option>
-              <option>Direito</option>
-              <option>Enfermagem</option>
-              <option>Engenharia Civil</option>
-              <option>Engenharia de Computação</option>
-              <option>Engenharia de Produção</option>
-              <option>Odontologia</option>
-              <option>Psicologia</option>
-            </select>
+          <div class="hf-row-2col">
+            <div class="hf-row">
+              <label>Curso *</label>
+              <select name="curso" required>
+                <option value="">Selecione um curso</option>
+                <option>Administração</option>
+                <option>Direito</option>
+                <option>Enfermagem</option>
+                <option>Engenharia Civil</option>
+                <option>Engenharia de Computação</option>
+                <option>Engenharia de Produção</option>
+                <option>Odontologia</option>
+                <option>Psicologia</option>
+              </select>
+            </div>
+            <div class="hf-row">
+              <label>Forma de ingresso</label>
+              <select name="ingresso">
+                <option value="">Selecione</option>
+                <option>ENEM</option>
+                <option>Vestibular online</option>
+                <option>Transferência externa</option>
+                <option>Portador de diploma</option>
+                <option>Vestibular anterior</option>
+                <option>Reingresso</option>
+              </select>
+            </div>
           </div>
           <div class="hf-row">
-            <label>Forma de ingresso</label>
-            <select name="ingresso">
-              <option value="">Selecione</option>
-              <option>ENEM</option>
-              <option>Vestibular online</option>
-              <option>Transferência externa</option>
-              <option>Portador de diploma</option>
-              <option>Vestibular anterior</option>
-              <option>Reingresso</option>
-            </select>
+            <label>Mensagem</label>
+            <textarea name="mensagem" placeholder="Insira sua mensagem"></textarea>
           </div>
           <label style="display:flex;align-items:flex-start;gap:8px;font-size:12px;color:var(--text-light);margin-top:12px;cursor:pointer;line-height:1.4;">
             <input type="checkbox" name="autorizacao" value="Sim, autorizo" required style="margin-top:2px;flex-shrink:0;">
@@ -1010,7 +1018,7 @@ h1,h2,h3,h4 { font-family: var(--font-display); color: var(--navy); line-height:
       </div>
     </div>
     <div style="text-align:center; margin-top:40px;">
-      <a href="#contato" class="btn btn-primary js-back-home" data-scroll="contato" style="font-size:15px; padding:14px 36px;">Quero saber mais sobre o FIES →</a>
+      <a href="#topo" class="btn btn-primary js-back-home" data-scroll="topo" style="font-size:15px; padding:14px 36px;">Quero saber mais sobre o FIES →</a>
     </div>
   </div>
 </section>
@@ -1067,77 +1075,6 @@ h1,h2,h3,h4 { font-family: var(--font-display); color: var(--navy); line-height:
       <div class="faq-item">
         <button class="faq-question">A FBE oferece financiamento estudantil?</button>
         <div class="faq-answer">Sim. A Faculdade FBE possui convênio com o FIES para cursos selecionados (Administração, Direito, Engenharia Civil e Engenharia de Produção), com condições favoráveis de financiamento a juros baixos.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTATO -->
-<section id="contato" class="bg-white">
-  <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">Contato</span>
-      <h2>Fale com a gente</h2>
-      <p>Preencha o formulário abaixo ou entre em<br class="br-mobile"> contato por telefone, e-mail ou WhatsApp.</p>
-    </div>
-    <div class="contact-grid">
-      <div>
-        <div class="contact-info-item">
-          <div class="ic">📍</div>
-          <div><strong>Endereço</strong><span>Rua Adhemar Pinheiro Lemos, 1617, Imbuí, Salvador - BA</span></div>
-        </div>
-        <div class="contact-info-item">
-          <div class="ic">✉️</div>
-          <div><strong>E-mail</strong><span><a href="mailto:fbevestibular@gmail.com" style="color:inherit;text-decoration:none;">fbevestibular@gmail.com</a></span></div>
-        </div>
-        <div class="contact-info-item">
-          <div class="ic">📞</div>
-          <div><strong>Telefones</strong><span>(71) 99610-1312</span></div>
-        </div>
-        <div class="contact-info-item">
-          <div class="ic">🕐</div>
-          <div><strong>Horário</strong><span>Seg a Sex: 7h às 22h / Sáb: 7h às 12h</span></div>
-        </div>
-      </div>
-      <div class="form-card">
-        <form id="contato-form">
-          <div class="form-row">
-            <label for="nome">Nome Completo *</label>
-            <input type="text" id="nome" name="nome" placeholder="Escreva seu nome completo" required>
-          </div>
-          <div class="form-row">
-            <label for="email">E-mail *</label>
-            <input type="email" id="email" name="email" placeholder="Escreva o seu melhor e-mail" required>
-          </div>
-          <div class="form-row">
-            <label for="whatsapp">WhatsApp *</label>
-            <input type="tel" id="whatsapp" name="phone" placeholder="Seu número de WhatsApp" required>
-          </div>
-          <div class="form-row">
-            <label for="curso">Curso de interesse</label>
-            <select id="curso" name="curso">
-              <option value="">Selecione um curso</option>
-              <option>Administração</option>
-              <option>Direito</option>
-              <option>Enfermagem</option>
-              <option>Engenharia Civil</option>
-              <option>Engenharia de Computação</option>
-              <option>Engenharia de Produção</option>
-              <option>Odontologia</option>
-              <option>Psicologia</option>
-            </select>
-          </div>
-          <div class="form-row">
-            <label for="mensagem">Mensagem</label>
-            <textarea id="mensagem" name="mensagem" placeholder="Insira sua mensagem"></textarea>
-          </div>
-          <label style="display:flex;align-items:flex-start;gap:8px;font-size:12px;color:var(--text-light);margin-top:12px;cursor:pointer;line-height:1.4;">
-            <input type="checkbox" name="autorizacao" value="Sim, autorizo" required style="margin-top:2px;flex-shrink:0;">
-            Eu autorizo que a Faculdade FBE utilize meus dados para me contactar.
-          </label>
-          <button type="submit" class="btn btn-primary" style="width:100%;margin-top:12px">Enviar</button>
-          <div class="form-success">✅ Mensagem enviada! Nossa equipe entrará em contato em breve.</div>
-        </form>
       </div>
     </div>
   </div>
@@ -2030,7 +1967,7 @@ h1,h2,h3,h4 { font-family: var(--font-display); color: var(--navy); line-height:
           <li><a href="#ingresso" class="js-back-home" data-scroll="ingresso">Ingresso</a></li>
           <li><a href="#fies" class="js-back-home" data-scroll="fies">FIES</a></li>
           <li><a href="#faq" class="js-back-home" data-scroll="faq">Perguntas frequentes</a></li>
-          <li><a href="#contato" class="js-back-home" data-scroll="contato">Contato</a></li>
+          <li><a href="#topo" class="js-back-home" data-scroll="topo">Contato</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -2197,34 +2134,6 @@ document.addEventListener('DOMContentLoaded', () => {
           btn.disabled = false;
           btn.textContent = 'Enviar';
           setTimeout(() => { heroForm.querySelector('.hf-success').style.display = 'none'; }, 5000);
-        })
-        .catch(() => {
-          alert('Erro ao enviar. Tente novamente.');
-          btn.disabled = false;
-          btn.textContent = 'Enviar';
-        });
-    });
-  }
-
-  // Formulário de contato
-  const form = document.getElementById('contato-form');
-  if (form) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const btn = form.querySelector('button[type="submit"]');
-      btn.disabled = true;
-      btn.textContent = 'Enviando...';
-      emailjs.sendForm('service_n40ybhn', 'template_m6s9fwm', form)
-        .then(() => {
-          form.querySelector('.form-success').style.display = 'block';
-          gtag('event', 'envio_formulario_contato', {'formulario': 'contato'});
-          if (typeof fbq === 'function') {
-            fbq('track', 'Contact');
-          }
-          form.reset();
-          btn.disabled = false;
-          btn.textContent = 'Enviar';
-          setTimeout(() => { form.querySelector('.form-success').style.display = 'none'; }, 5000);
         })
         .catch(() => {
           alert('Erro ao enviar. Tente novamente.');
