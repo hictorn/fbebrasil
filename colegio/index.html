@@ -2175,7 +2175,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     e.preventDefault();
     const b=admF.querySelector('button[type="submit"]');
     b.disabled=true;b.textContent='Enviando...';
-    emailjs.sendForm('service_n40ybhn','template_993v0dn',admF).then(()=>{
+    emailjs.sendForm('service_n40ybhn','template_ax5qtqc',admF).then(()=>{
       admF.querySelector('.form-success').style.display='block';
       admF.reset();b.disabled=false;b.textContent='Enviar pré-inscrição';
       setTimeout(()=>{admF.querySelector('.form-success').style.display='none'},6000);
