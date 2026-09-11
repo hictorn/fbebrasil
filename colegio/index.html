@@ -2021,10 +2021,10 @@ document.addEventListener('DOMContentLoaded',()=>{
     document.body.classList.remove('nav-locked');
     window.scrollTo({top:navScrollY,left:0,behavior:'instant'});
   }
-  // Reforço pra touch (iOS): bloqueia o arraste da página por trás do menu,
-  // deixando passar apenas o scroll dentro do próprio menu (#mainNav).
+  // Reforço pra touch (iOS): bloqueia o arraste da página por trás do menu/lightbox,
+  // deixando passar apenas o scroll dentro do próprio menu (#mainNav) ou o swipe no lightbox.
   document.addEventListener('touchmove',(e)=>{
-    if(document.body.classList.contains('nav-locked')&&!e.target.closest('#mainNav')){
+    if(document.body.classList.contains('nav-locked')&&!e.target.closest('#mainNav')&&!e.target.closest('#lightbox')){
       e.preventDefault();
     }
   },{passive:false});
@@ -2206,11 +2206,11 @@ document.addEventListener('DOMContentLoaded',()=>{
     galActiveList=list||null;
     updateGalLightbox();
     document.getElementById('lightbox').classList.add('open');
-    document.body.style.overflow='hidden';
+    lockScroll();
   };
   function closeGalLightbox(){
     document.getElementById('lightbox').classList.remove('open');
-    document.body.style.overflow='';
+    unlockScroll();
   }
   function updateGalLightbox(){
     const list=galActiveList||GAL_SRC;
@@ -2233,13 +2233,33 @@ document.addEventListener('DOMContentLoaded',()=>{
     lbClose.addEventListener('click',closeGalLightbox);
     lbPrev.addEventListener('click',()=>{const list=galActiveList||GAL_SRC;galIdx=(galIdx-1+list.length)%list.length;updateGalLightbox()});
     lbNext.addEventListener('click',()=>{const list=galActiveList||GAL_SRC;galIdx=(galIdx+1)%list.length;updateGalLightbox()});
-    lightboxEl.addEventListener('click',e=>{if(e.target.id==='lightbox')closeGalLightbox()});
+    // Clicar em qualquer área fora da foto/controles (o fundo escurecido) fecha o lightbox.
+    lightboxEl.addEventListener('click',e=>{
+      if(e.target.id==='lightbox'||e.target.id==='lbImg')closeGalLightbox();
+    });
     document.addEventListener('keydown',e=>{
       if(!lightboxEl.classList.contains('open'))return;
       if(e.key==='Escape')closeGalLightbox();
       if(e.key==='ArrowLeft')lbPrev.click();
       if(e.key==='ArrowRight')lbNext.click();
     });
+    // Swipe horizontal no touch: arrastar pra esquerda avança, pra direita volta.
+    let touchStartX=0,touchStartY=0,touchMoved=false;
+    lightboxEl.addEventListener('touchstart',e=>{
+      touchStartX=e.touches[0].clientX;
+      touchStartY=e.touches[0].clientY;
+      touchMoved=false;
+    },{passive:true});
+    lightboxEl.addEventListener('touchmove',()=>{touchMoved=true},{passive:true});
+    lightboxEl.addEventListener('touchend',e=>{
+      if(!touchMoved)return;
+      const dx=e.changedTouches[0].clientX-touchStartX;
+      const dy=e.changedTouches[0].clientY-touchStartY;
+      // só conta como swipe se o movimento horizontal for claramente maior que o vertical
+      if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy)*1.5){
+        if(dx<0)lbNext.click();else lbPrev.click();
+      }
+    },{passive:true});
   }
 
   // ═══ MURAL: galeria de fotos dentro de um post ═══
