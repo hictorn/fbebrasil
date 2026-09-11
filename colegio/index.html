@@ -127,7 +127,8 @@ h1,h2,h3,h4 { font-family: var(--font-display); color: var(--navy); line-height:
 .view{display:none}.view.active{display:block}
 
 /* ── Subpage hero + breadcrumb ── */
-.sub-hero{background:linear-gradient(120deg,var(--navy-deep),var(--navy));padding:48px 0 40px;color:#fff}
+.sub-hero{background:linear-gradient(120deg,var(--navy-deep),var(--navy));padding:48px 0 40px;color:#fff;min-height:196px;display:flex;align-items:center}
+.sub-hero>.container{width:100%}
 .sub-hero.sub-hero--red{background:linear-gradient(120deg,var(--red-dark),var(--red))}
 .sub-hero.sub-hero--mural{background:var(--red-dark)}
 .breadcrumb{font-size:13px;color:rgba(255,255,255,.55);margin-bottom:12px}.breadcrumb a{color:rgba(255,255,255,.7);transition:color .2s}.breadcrumb a:hover{color:#fff}
@@ -192,6 +193,7 @@ h1,h2,h3,h4 { font-family: var(--font-display); color: var(--navy); line-height:
 
 /* ── Galeria: cartão de foto (background-image, não <img>, evita bug de overflow:clip do navegador) ── */
 .gal-photo{position:relative;cursor:pointer;aspect-ratio:16/9;border-radius:var(--radius-sm);overflow:hidden;background-color:var(--navy);background-size:cover;background-position:center;box-shadow:var(--shadow);transition:transform .25s ease,box-shadow .25s ease}
+[data-post-gallery] .gal-photo{aspect-ratio:1/1;background-position:center top}
 .gal-photo:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
 
 /* ── Galeria: página completa (grid uniforme, sem tags) ── */
@@ -671,7 +673,7 @@ a.loc-mini-card:hover{border-color:var(--navy);background:var(--white);box-shado
   .footer-col p{font-size:15px}.footer-col h4{margin-bottom:16px}.footer-col ul li{margin-bottom:12px;font-size:15px}
   .footer-bottom{flex-direction:column;gap:6px;text-align:center;padding:20px 0}
   .wa-float{bottom:16px;right:16px;width:50px;height:50px}.wa-float svg{width:24px;height:24px}
-  .sub-hero{padding:32px 0 24px}.breadcrumb{font-size:12px;margin-bottom:14px}
+  .sub-hero{padding:32px 0 24px;min-height:0}.breadcrumb{font-size:12px;margin-bottom:14px}
   .sub-content{padding:32px 0}
 }
 @media(max-width:400px){
@@ -906,7 +908,7 @@ a.loc-mini-card:hover{border-color:var(--navy);background:var(--white);box-shado
         <div class="dest-img js-open-page" data-view="view-mural-post-volta-aulas" style="background-image:url('mural-volta-aulas-capa.jpg')"></div>
         <div class="dest-body">
           <span style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--red)">Recepção</span>
-          <h4 style="margin-top:4px">Volta às Aulas</h4>
+          <h4 style="margin-top:4px">Volta às Aulas 2026</h4>
           <a href="#" class="js-open-page" data-view="view-mural-post-volta-aulas">Ler mais →</a>
         </div>
       </div>
@@ -1892,7 +1894,7 @@ a.loc-mini-card:hover{border-color:var(--navy);background:var(--white);box-shado
           <div class="dest-img js-open-page" data-view="view-mural-post-volta-aulas" style="background-image:url('mural-volta-aulas-capa.jpg')"></div>
           <div class="dest-body">
             <span style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--red)">Recepção</span>
-            <h4 style="margin-top:4px">Volta às Aulas</h4>
+            <h4 style="margin-top:4px">Volta às Aulas 2026</h4>
             <a href="#" class="js-open-page" data-view="view-mural-post-volta-aulas">Ler mais →</a>
           </div>
         </div>
@@ -1907,21 +1909,21 @@ a.loc-mini-card:hover{border-color:var(--navy);background:var(--white);box-shado
 <div id="view-mural-post-volta-aulas" class="view">
   <div class="sub-hero sub-hero--mural">
     <div class="container">
-      <div class="breadcrumb"><a href="#" class="js-go-home">Início</a> / <a href="#" class="js-open-page" data-view="view-mural">Mural</a> / Volta às Aulas</div>
+      <div class="breadcrumb"><a href="#" class="js-go-home">Início</a> / <a href="#" class="js-open-page" data-view="view-mural">Mural</a> / Volta às Aulas 2026</div>
       <h1>Volta às Aulas 2026</h1>
     </div>
   </div>
   <div class="sub-content">
     <div class="container" style="max-width:820px">
       <div style="border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-lg);margin-bottom:32px;aspect-ratio:16/9">
-        <img src="mural-volta-aulas-2.jpg" alt="Alunos do Colégio FBE na volta às aulas" style="width:100%;height:100%;object-fit:cover" loading="lazy">
+        <img src="mural-volta-aulas-2.jpg" alt="Alunos do Colégio FBE na volta às aulas" style="width:100%;height:100%;object-fit:cover;object-position:center 25%" loading="lazy">
       </div>
 
       <p>A volta às aulas no Colégio FBE foi marcada por muitos sorrisos, reencontros e aquele clima gostoso de reencontrar os amigos depois das férias. Alunos do Fundamental II e do Ensino Médio chegaram animados para retomar a rotina de estudos, renovar amizades e dar início a mais um ano cheio de novidades e conquistas.</p>
       <p>Para receber bem os estudantes, a equipe do Colégio preparou uma programação de acolhimento com dinâmicas e um bate-papo especial no auditório, reforçando os laços entre alunos, professores e a comunidade escolar. É esse espírito de união que faz do FBE mais do que uma escola: um verdadeiro lugar de pertencimento.</p>
 
       <h3>Galeria do evento</h3>
-      <div class="gal-mosaic" data-post-gallery="Volta às Aulas" style="grid-template-columns:repeat(4,1fr);margin-top:16px">
+      <div class="gal-mosaic" data-post-gallery="Volta às Aulas 2026" style="grid-template-columns:repeat(4,1fr);margin-top:16px">
         <div class="gal-photo" style="background-image:url('mural-volta-aulas-1.jpg')" title="Alunas na volta às aulas"></div>
         <div class="gal-photo" style="background-image:url('mural-volta-aulas-2.jpg')" title="Alunos na volta às aulas"></div>
         <div class="gal-photo" style="background-image:url('mural-volta-aulas-3.jpg')" title="Amigas se reencontrando"></div>
