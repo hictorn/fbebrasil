@@ -1910,6 +1910,14 @@ a.loc-mini-card:hover{border-color:var(--navy);background:var(--white);box-shado
             <a href="#" class="js-open-page" data-view="view-mural-carnaval">Ler mais →</a>
           </div>
         </div>
+        <div class="dest-card">
+          <div class="dest-img js-open-page" data-view="view-mural-pascoa" style="background-image:url('../mural-pascoa-capa.jpg')"></div>
+          <div class="dest-body">
+            <span style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--red)">Eventos</span>
+            <h4 style="margin-top:4px">Páscoa 2026</h4>
+            <a href="#" class="js-open-page" data-view="view-mural-pascoa">Ler mais →</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -1978,6 +1986,42 @@ a.loc-mini-card:hover{border-color:var(--navy);background:var(--white);box-shado
         <div class="gal-photo" style="background-image:url('../mural-carnaval-3.jpg');background-position:center 20%" title="Fantasia de coringa"></div>
         <div class="gal-photo" style="background-image:url('../mural-carnaval-4.jpg')" title="Amigos no carnaval"></div>
         <div class="gal-photo" style="background-image:url('../mural-carnaval-5.jpg')" title="Turma fantasiada"></div>
+      </div>
+
+      <div style="margin-top:40px;padding-top:24px;border-top:1px solid var(--border)">
+        <a href="#" class="btn btn-outline js-open-page" data-view="view-mural">← Voltar ao Mural</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════ -->
+<!-- VIEW: MURAL - POST PÁSCOA 2026          -->
+<!-- ════════════════════════════════════════ -->
+<div id="view-mural-pascoa" class="view">
+  <div class="sub-hero sub-hero--mural">
+    <div class="container">
+      <div class="breadcrumb"><a href="#" class="js-go-home">Início</a> / <a href="#" class="js-open-page" data-view="view-mural">Mural</a> / Páscoa 2026</div>
+      <h1>Páscoa 2026</h1>
+    </div>
+  </div>
+  <div class="sub-content">
+    <div class="container" style="max-width:820px">
+      <div style="border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-lg);margin-bottom:32px;aspect-ratio:16/9">
+        <img src="../mural-pascoa-capa-post.jpg" alt="Alunos com a coelhinha da Páscoa no Colégio FBE" style="width:100%;height:100%;object-fit:cover" loading="lazy">
+      </div>
+
+      <p>A Páscoa chegou com muita alegria ao Colégio FBE! Alunos de todas as idades receberam a visita especial da coelhinha, que passeou pelos corredores espalhando sorrisos, fotos e um clima leve e afetuoso que marcou a data em nossa comunidade escolar.</p>
+
+      <h3>Galeria do evento</h3>
+      <div class="gal-mosaic" data-post-gallery="Páscoa 2026" style="grid-template-columns:repeat(4,1fr);margin-top:16px">
+        <div class="gal-photo" style="background-image:url('../mural-pascoa-1.jpg');background-position:center 20%" title="Alunos com a coelhinha"></div>
+        <div class="gal-photo" style="background-image:url('../mural-pascoa-2.jpg');background-position:center 25%" title="Coelhinha com alunos"></div>
+        <div class="gal-photo" style="background-image:url('../mural-pascoa-3.jpg');background-position:center 20%" title="Coelhinha com funcionária"></div>
+        <div class="gal-photo" style="background-image:url('../mural-pascoa-4.jpg');background-position:center 20%" title="Turma com a coelhinha"></div>
+        <div class="gal-photo" style="background-image:url('../mural-pascoa-5.jpg');background-position:center 15%" title="Aluno com a coelhinha"></div>
+        <div class="gal-photo" style="background-image:url('../mural-pascoa-6.jpg');background-position:center 15%" title="Amigos com a coelhinha"></div>
+        <div class="gal-photo" style="background-image:url('../mural-pascoa-7.jpg')" title="Aluno fantasiado de coelho"></div>
       </div>
 
       <div style="margin-top:40px;padding-top:24px;border-top:1px solid var(--border)">
@@ -2089,7 +2133,8 @@ document.addEventListener('DOMContentLoaded',()=>{
   // Mapa: slug curto usado na URL -> id da view correspondente no HTML.
   const MURAL_POST_MAP={
     'carnaval':'view-mural-carnaval',
-    'volta-aulas':'view-mural-post-volta-aulas'
+    'volta-aulas':'view-mural-post-volta-aulas',
+    'pascoa':'view-mural-pascoa'
   };
 
   function showView(id,{push=true,origem='menu'}={}){
