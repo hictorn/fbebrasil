@@ -913,8 +913,12 @@ a.loc-mini-card:hover{border-color:var(--navy);background:var(--white);box-shado
         </div>
       </div>
       <div class="dest-card">
-        <div class="dest-img" style="background-image:url('mural-post-2.jpg')"></div>
-        <div class="dest-body"><h4>Em breve</h4><span style="font-size:13px;color:var(--text-light)">Novidades a caminho</span></div>
+        <div class="dest-img js-open-page" data-view="view-mural-post-carnaval" style="background-image:url('mural-carnaval-capa.jpg')"></div>
+        <div class="dest-body">
+          <span style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--red)">Eventos</span>
+          <h4 style="margin-top:4px">Carnaval FBE</h4>
+          <a href="#" class="js-open-page" data-view="view-mural-post-carnaval">Ler mais →</a>
+        </div>
       </div>
       <div class="dest-card">
         <div class="dest-img" style="background-image:url('mural-post-3.jpg')"></div>
@@ -1898,6 +1902,14 @@ a.loc-mini-card:hover{border-color:var(--navy);background:var(--white);box-shado
             <a href="#" class="js-open-page" data-view="view-mural-post-volta-aulas">Ler mais →</a>
           </div>
         </div>
+        <div class="dest-card">
+          <div class="dest-img js-open-page" data-view="view-mural-post-carnaval" style="background-image:url('mural-carnaval-capa.jpg')"></div>
+          <div class="dest-body">
+            <span style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--red)">Eventos</span>
+            <h4 style="margin-top:4px">Carnaval FBE</h4>
+            <a href="#" class="js-open-page" data-view="view-mural-post-carnaval">Ler mais →</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -1932,6 +1944,40 @@ a.loc-mini-card:hover{border-color:var(--navy);background:var(--white);box-shado
         <div class="gal-photo" style="background-image:url('mural-volta-aulas-6.jpg')" title="Alunos no acolhimento"></div>
         <div class="gal-photo" style="background-image:url('mural-volta-aulas-7.jpg')" title="Amigos no auditório"></div>
         <div class="gal-photo" style="background-image:url('mural-volta-aulas-8.jpg')" title="Turma reunida no acolhimento"></div>
+      </div>
+
+      <div style="margin-top:40px;padding-top:24px;border-top:1px solid var(--border)">
+        <a href="#" class="btn btn-outline js-open-page" data-view="view-mural">← Voltar ao Mural</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════ -->
+<!-- VIEW: MURAL - POST CARNAVAL FBE         -->
+<!-- ════════════════════════════════════════ -->
+<div id="view-mural-post-carnaval" class="view">
+  <div class="sub-hero sub-hero--mural">
+    <div class="container">
+      <div class="breadcrumb"><a href="#" class="js-go-home">Início</a> / <a href="#" class="js-open-page" data-view="view-mural">Mural</a> / Carnaval FBE</div>
+      <h1>Carnaval FBE</h1>
+    </div>
+  </div>
+  <div class="sub-content">
+    <div class="container" style="max-width:820px">
+      <div style="border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-lg);margin-bottom:32px;aspect-ratio:16/9">
+        <img src="mural-carnaval-2.jpg" alt="Alunas fantasiadas no Carnaval do Colégio FBE" style="width:100%;height:100%;object-fit:cover;object-position:center 20%" loading="lazy">
+      </div>
+
+      <p>O Carnaval tomou conta do Colégio FBE em um dia repleto de cor, criatividade e alegria! Alunos capricharam nas fantasias e se divertiram em uma manhã de confraternização que reforçou os laços de amizade e o espírito leve e descontraído da nossa comunidade escolar.</p>
+
+      <h3>Galeria do evento</h3>
+      <div class="gal-mosaic" data-post-gallery="Carnaval FBE" style="grid-template-columns:repeat(4,1fr);margin-top:16px">
+        <div class="gal-photo" style="background-image:url('mural-carnaval-1.jpg')" title="Fantasia de carnaval"></div>
+        <div class="gal-photo" style="background-image:url('mural-carnaval-2.jpg')" title="Amigas fantasiadas"></div>
+        <div class="gal-photo" style="background-image:url('mural-carnaval-3.jpg')" title="Fantasia de coringa"></div>
+        <div class="gal-photo" style="background-image:url('mural-carnaval-4.jpg')" title="Amigos no carnaval"></div>
+        <div class="gal-photo" style="background-image:url('mural-carnaval-5.jpg')" title="Turma fantasiada"></div>
       </div>
 
       <div style="margin-top:40px;padding-top:24px;border-top:1px solid var(--border)">
@@ -2040,7 +2086,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   function closeNav(){if(n)n.classList.remove('open');if(t)t.textContent='\u2630';unlockScroll();document.querySelectorAll('.nav-drop[open]').forEach(d=>d.removeAttribute('open'))}
 
   // ═══ ROTEAMENTO POR URL (?pagina=), mesmo padrão do ?curso= da Faculdade ═══
-  const PAGINA_SLUGS=['admissao','enem','esportes','estrutura','fundamental','galeria','laboratorios','localizacao','medio','mural','mural-post-volta-aulas','proposta','sae'];
+  const PAGINA_SLUGS=['admissao','enem','esportes','estrutura','fundamental','galeria','laboratorios','localizacao','medio','mural','mural-post-carnaval','mural-post-volta-aulas','proposta','sae'];
 
   function showView(id,{push=true,origem='menu'}={}){
     document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
