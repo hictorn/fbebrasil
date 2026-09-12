@@ -555,6 +555,9 @@ a.loc-mini-card:hover{border-color:var(--navy);background:var(--white);box-shado
 
 /* ── Destaques Institucionais ── */
 .dest-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.dest-grid--mural{grid-template-columns:repeat(3,minmax(0,280px));justify-content:center}
+@media(max-width:900px){.dest-grid--mural{grid-template-columns:repeat(2,minmax(0,280px))}}
+@media(max-width:600px){.dest-grid--mural{grid-template-columns:minmax(0,320px)}}
 .dest-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:transform .2s,box-shadow .2s}
 .dest-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
 .dest-img{aspect-ratio:4/3;background-color:var(--bg-alt);background-size:cover;background-position:center;cursor:pointer;transition:opacity .2s ease}
@@ -904,7 +907,7 @@ a.loc-mini-card:hover{border-color:var(--navy);background:var(--white);box-shado
       <h2>Últimas notícias do Colégio FBE</h2>
       <p>Acompanhe avisos, eventos e novidades da nossa comunidade escolar.</p>
     </div>
-    <div class="dest-grid">
+    <div class="dest-grid dest-grid--mural">
       <div class="dest-card">
         <a class="dest-img" href="mural/?post=volta-aulas" style="background-image:url('mural-volta-aulas-capa.jpg');display:block"></a>
         <div class="dest-body">
