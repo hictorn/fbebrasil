@@ -555,7 +555,7 @@ a.loc-mini-card:hover{border-color:var(--navy);background:var(--white);box-shado
 
 /* ── Destaques Institucionais ── */
 .dest-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.dest-grid--mural{grid-template-columns:repeat(3,minmax(0,280px));justify-content:center}
+.dest-grid--mural{grid-template-columns:repeat(4,minmax(0,1fr));justify-content:center}
 @media(max-width:900px){.dest-grid--mural{grid-template-columns:repeat(2,minmax(0,280px))}}
 @media(max-width:600px){.dest-grid--mural{grid-template-columns:minmax(0,320px)}}
 .dest-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:transform .2s,box-shadow .2s}
@@ -908,6 +908,14 @@ a.loc-mini-card:hover{border-color:var(--navy);background:var(--white);box-shado
       <p>Acompanhe avisos, eventos e novidades da nossa comunidade escolar.</p>
     </div>
     <div class="dest-grid dest-grid--mural">
+      <div class="dest-card">
+        <a class="dest-img" href="mural/?post=pl-pagador-promessas" style="background-image:url('mural-pl-pagador-promessas-capa.png');display:block"></a>
+        <div class="dest-body">
+          <span style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--red)">Projeto Literário</span>
+          <h4 style="margin-top:4px">O Pagador de Promessas</h4>
+          <a href="mural/?post=pl-pagador-promessas">Ler mais →</a>
+        </div>
+      </div>
       <div class="dest-card">
         <a class="dest-img" href="mural/?post=volta-aulas" style="background-image:url('mural-volta-aulas-capa.jpg');display:block"></a>
         <div class="dest-body">
