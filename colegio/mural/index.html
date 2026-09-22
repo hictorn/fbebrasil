@@ -1896,6 +1896,14 @@ a.loc-mini-card:hover{border-color:var(--navy);background:var(--white);box-shado
     <div class="container">
       <div class="dest-grid">
         <div class="dest-card">
+          <div class="dest-img js-open-page" data-view="view-mural-doacoes" style="background-image:url('../mural-doacoes-capa.png')"></div>
+          <div class="dest-body">
+            <span style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--red)">Projeto Social</span>
+            <h4 style="margin-top:4px">Doações</h4>
+            <a href="#" class="js-open-page" data-view="view-mural-doacoes">Ler mais →</a>
+          </div>
+        </div>
+        <div class="dest-card">
           <div class="dest-img js-open-page" data-view="view-mural-jifube2026" style="background-image:url('../mural-jifube2026-capa.png')"></div>
           <div class="dest-body">
             <span style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--red)">Competição interna</span>
@@ -1935,6 +1943,44 @@ a.loc-mini-card:hover{border-color:var(--navy);background:var(--white);box-shado
             <a href="#" class="js-open-page" data-view="view-mural-pascoa">Ler mais →</a>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════ -->
+<!-- VIEW: MURAL - DOAÇÕES                             -->
+<!-- ═══════════════════════════════════════════════════ -->
+<div id="view-mural-doacoes" class="view">
+  <div class="sub-hero sub-hero--mural">
+    <div class="container">
+      <div class="breadcrumb"><a href="#" class="js-go-home">Início</a> / <a href="#" class="js-open-page" data-view="view-mural">Mural</a> / Doações</div>
+      <h1>Doações</h1>
+    </div>
+  </div>
+  <div class="sub-content">
+    <div class="container" style="max-width:820px">
+      <div style="border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-lg);margin-bottom:32px;aspect-ratio:16/9">
+        <img src="../mural-doacoes-capa-post.png" alt="Projeto de doações do Colégio FBE" style="width:100%;height:100%;object-fit:cover" loading="lazy">
+      </div>
+
+      <p>O projeto de doações do Colégio FBE contou com a participação dos alunos em uma ação de solidariedade e cuidado com o próximo.</p>
+      <p>As doações foram destinadas ao Lar Irmã Maria Luiza e ao Abrigo São Gabriel para Idosos de Deus, contribuindo com o trabalho realizado pelas duas instituições e levando apoio às pessoas atendidas.</p>
+      <p>A iniciativa também incentivou valores como empatia, colaboração e responsabilidade, mostrando aos estudantes a importância de ajudar quem precisa.</p>
+
+      <h3>Galeria do evento</h3>
+      <div class="gal-mosaic" data-post-gallery="Doações" style="margin-top:16px">
+        <div class="gal-photo" style="background-image:url('../mural-doacoes-1.jpeg');background-position:center 80%" title="Doações"></div>
+        <div class="gal-photo" style="background-image:url('../mural-doacoes-2.jpeg');background-position:center 80%" title="Doações"></div>
+        <div class="gal-photo" style="background-image:url('../mural-doacoes-3.jpeg');background-position:center 80%" title="Doações"></div>
+        <div class="gal-photo" style="background-image:url('../mural-doacoes-4.jpeg');background-position:center 80%" title="Doações"></div>
+        <div class="gal-photo" style="background-image:url('../mural-doacoes-5.jpeg');background-position:center 80%" title="Doações"></div>
+        <div class="gal-photo" style="background-image:url('../mural-doacoes-6.jpeg');background-position:center 80%" title="Doações"></div>
+        <div class="gal-photo" style="background-image:url('../mural-doacoes-7.jpeg');background-position:center 80%" title="Doações"></div>
+      </div>
+
+      <div style="margin-top:36px;padding-top:24px;border-top:1px solid var(--border)">
+        <a href="#" class="btn btn-outline js-open-page" data-view="view-mural">← Voltar ao Mural</a>
       </div>
     </div>
   </div>
@@ -2232,6 +2278,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   // ═══ ROTEAMENTO DO MURAL (?post=), mora em /colegio/mural/ ═══
   // Mapa: slug curto usado na URL -> id da view correspondente no HTML.
   const MURAL_POST_MAP={
+    'doacoes':'view-mural-doacoes',
     'jifube2026':'view-mural-jifube2026',
     'pl-pagador-promessas':'view-mural-pl-pagador-promessas',
     'carnaval':'view-mural-carnaval',
