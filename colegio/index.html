@@ -687,7 +687,6 @@ a.loc-mini-card:hover{border-color:var(--navy);background:var(--white);box-shado
 
 /* ── Programa de Dependência: chamada da Home ── */
 .dep-home{background:linear-gradient(135deg,#fff 0%,var(--bg-alt) 100%);position:relative;overflow:hidden}
-.dep-home::after{content:"";position:absolute;width:360px;height:360px;border-radius:50%;right:-140px;bottom:-220px;background:rgba(242,183,5,.10);pointer-events:none}
 .dep-home-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(380px,.95fr);gap:54px;align-items:center;position:relative;z-index:1}
 .dep-home-copy h2{font-size:clamp(25px,2.4vw,34px);line-height:1.16;margin-bottom:8px;max-width:650px}
 .dep-home-subtitle{font-family:var(--font-display);font-weight:500;font-size:clamp(19px,1.7vw,24px);line-height:1.35;color:var(--navy);margin:0 0 18px;max-width:650px}
@@ -709,7 +708,7 @@ a.loc-mini-card:hover{border-color:var(--navy);background:var(--white);box-shado
 .dep-intro{font-size:16px!important;color:var(--text)!important;line-height:1.8!important}
 .dep-info-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:28px 0 34px}
 .dep-info-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:22px 22px 20px}
-.dep-info-card h3{font-size:16px;margin:0 0 10px;display:flex;align-items:center;gap:8px}
+.dep-info-card h3{font-size:16px;margin:0 0 10px;display:flex;align-items:center;gap:8px;line-height:1.25}.dep-info-icon{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;line-height:1;font-size:18px;flex:0 0 22px}
 .dep-info-card p,.dep-info-card li{font-size:14px!important;line-height:1.65!important;color:var(--text-light)!important}
 .dep-info-card ul{margin:0!important;padding-left:18px!important}
 .dep-info-card li{margin-bottom:5px!important}
@@ -1070,18 +1069,18 @@ a.loc-mini-card:hover{border-color:var(--navy);background:var(--white);box-shado
 
           <div class="dep-info-grid">
             <div class="dep-info-card">
-              <h3>🗓️ Turno das aulas</h3>
+              <h3><span class="dep-info-icon" aria-hidden="true">🗓️</span><span>Turno das aulas</span></h3>
               <p>As aulas serão ministradas no turno vespertino, conforme calendário pedagógico disponibilizado no início das aulas.</p>
             </div>
             <div class="dep-info-card">
-              <h3>📚 Limite de disciplinas</h3>
+              <h3><span class="dep-info-icon" aria-hidden="true">📚</span><span>Limite de disciplinas</span></h3>
               <ul>
                 <li>Máximo de <strong>3 disciplinas</strong> para o Ensino Fundamental II e Ensino Médio.</li>
                 <li>O <strong>9º ano não faz dependência para a 1ª série</strong>, por ser troca de ciclo.</li>
               </ul>
             </div>
             <div class="dep-info-card">
-              <h3>💳 Pagamento</h3>
+              <h3><span class="dep-info-icon" aria-hidden="true">💳</span><span>Pagamento</span></h3>
               <ul>
                 <li>A partir de 2 disciplinas: até <strong>3x no cartão de crédito sem juros</strong>.</li>
                 <li><strong>10% de desconto</strong> à vista.</li>
@@ -1089,7 +1088,7 @@ a.loc-mini-card:hover{border-color:var(--navy);background:var(--white);box-shado
               </ul>
             </div>
             <div class="dep-info-card">
-              <h3>📄 Documentação</h3>
+              <h3><span class="dep-info-icon" aria-hidden="true">📄</span><span>Documentação</span></h3>
               <ul>
                 <li>Histórico escolar e atestado de transferência assinado com as disciplinas em que o aluno não obteve aprovação.</li>
                 <li>Sem esses documentos, não é possível realizar a matrícula na dependência.</li>
