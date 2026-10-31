@@ -38,6 +38,12 @@ Prévia estática local, usando o mesmo HTML e os mesmos caminhos absolutos que 
 
 Não foram enviados leads de teste. A proteção dos formulários foi verificada por comparação exata dos arquivos e pela navegação até o formulário. A validação de dados estruturados é local; não foi submetida ao teste externo de resultados enriquecidos nem ao Search Console.
 
+## Correção da abertura do formulário
+
+Os links do blog que abrem o topo da Faculdade, incluindo “Receber informações”, passaram a usar `/faculdade/`, sem `#topo`. Isso evita o deslocamento nativo até a seção hero depois do carregamento. A correção foi aplicada ao modelo e às nove páginas geradas.
+
+No navegador, o clique do artigo de pós abriu `/faculdade/` com `scrollY = 0`, barra superior na posição 0 e formulário começando abaixo do cabeçalho (aproximadamente 197 px, contra 141 px do cabeçalho). O início do cartão ficou visível como na referência aprovada. A prévia `Blog_FBE.html` recebeu os mesmos destinos.
+
 ## Revisão antes do merge
 
 Revisar os quatro textos iniciais como conteúdo institucional, confirmar autoria “Equipe FBE” e ajustar datas à publicação efetiva. O workflow adicionado ao PR valida os arquivos; não publica o site. O deploy continua dependente do fluxo existente e de um merge posterior na `main`.
