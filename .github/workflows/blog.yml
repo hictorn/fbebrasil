@@ -1,0 +1,22 @@
+name: Blog FBE
+on:
+  pull_request:
+    paths:
+      - 'faculdade/**'
+      - 'assets/fbe-mobile-navigation.*'
+      - 'tools/blog/**'
+      - '.github/workflows/blog.yml'
+      - 'robots.txt'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify rendered blog, links and SEO
+        run: python3 tools/blog/verify.py
