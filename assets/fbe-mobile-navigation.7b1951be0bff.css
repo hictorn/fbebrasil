@@ -1,0 +1,21 @@
+/* One mobile opening pattern for all FBE headers. Desktop styles stay native. */
+[data-fbe-mobile-header="true"] { overflow:visible!important; }
+[data-fbe-mobile-header="true"] [data-fbe-mobile-toggle] {
+  width:44px; height:44px; padding:0; font-size:26px; line-height:44px;
+  text-align:center; flex-shrink:0; position:relative; z-index:2;
+}
+[data-fbe-mobile-header="true"] [data-fbe-mobile-menu] {
+  position:absolute!important; top:100%!important; left:0!important; right:0!important; bottom:auto!important;
+  width:100%!important; height:auto!important; min-height:0!important;
+  max-height:calc(100dvh - var(--fbe-mobile-header-bottom, 140px))!important;
+  margin:0!important; padding:12px 24px 20px!important; z-index:110!important;
+  display:none!important; flex-direction:column!important; align-items:stretch!important;
+  justify-content:flex-start!important; gap:0!important;
+  transform:none!important; visibility:hidden!important; opacity:0!important; transition:none!important;
+  background:var(--fbe-mobile-menu-bg,#fff)!important;
+  overflow-x:hidden!important; overflow-y:auto!important; overscroll-behavior:contain;
+  -webkit-overflow-scrolling:touch;
+}
+[data-fbe-mobile-header="true"] [data-fbe-mobile-menu].open {
+  display:flex!important; visibility:visible!important; opacity:1!important;
+}
