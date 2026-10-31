@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.fbebrasil.com.br/faculdade/sitemap.xml
