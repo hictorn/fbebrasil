@@ -1,0 +1,18 @@
+<div class="container blog-breadcrumb">$breadcrumbs</div>
+<article>
+  <header class="blog-article-heading container">
+    <a class="blog-category" href="$category_url">$category</a>
+    <h1>$headline</h1>
+    <p class="blog-intro">$description</p>
+    <div class="blog-meta"><span>Por Equipe FBE</span><span aria-hidden="true">·</span><time datetime="$date">$display_date</time><span aria-hidden="true">·</span><span>$reading_time min de leitura</span></div>
+  </header>
+  <div class="container"><img class="blog-article-cover" src="$cover" alt="$image_alt" width="1200" height="675" fetchpriority="high"></div>
+  <div class="container blog-article-layout">
+    <aside class="blog-toc" aria-labelledby="neste-artigo"><h2 id="neste-artigo">Neste artigo</h2><nav aria-label="Sumário do artigo">$toc</nav><a class="blog-back" href="/faculdade/blog/">← Todos os artigos</a></aside>
+    <div class="blog-prose">
+      $sections
+      <aside class="blog-course-callout" aria-labelledby="formacao-relacionada"><span class="eyebrow">Seu próximo passo</span><h2 id="formacao-relacionada">Conheça as formações da FBE</h2><p>Explore os cursos relacionados ao tema e converse com a equipe sobre a formação que combina com seus objetivos.</p><ul>$course_links</ul><a class="btn btn-primary" href="/faculdade/#topo">Receber informações</a></aside>
+    </div>
+  </div>
+</article>
+<section class="blog-related container" aria-labelledby="continue-lendo"><div class="blog-section-heading"><div><span class="eyebrow">Continue aprendendo</span><h2 id="continue-lendo">Outras leituras para você</h2></div><a class="blog-text-link" href="/faculdade/blog/">Ver todos os artigos →</a></div><div class="blog-grid">$related</div></section>
