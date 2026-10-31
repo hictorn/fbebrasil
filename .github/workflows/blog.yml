@@ -5,6 +5,7 @@ on:
       - 'faculdade/**'
       - 'assets/fbe-mobile-navigation.*'
       - 'tools/blog/**'
+      - 'tools/verify_navigation.py'
       - '.github/workflows/blog.yml'
       - 'robots.txt'
   workflow_dispatch:
@@ -20,3 +21,5 @@ jobs:
           python-version: '3.12'
       - name: Verify rendered blog, links and SEO
         run: python3 tools/blog/verify.py
+      - name: Verify admissions and graduation inquiry navigation
+        run: python3 tools/verify_navigation.py
