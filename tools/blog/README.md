@@ -34,11 +34,14 @@ As categorias usam páginas próprias em `/faculdade/blog/categoria/nome/`, com 
 ## Verificação e revisão
 
 ```sh
-# Comparação adicional com a base desta implementação:
-python3 tools/blog/verify.py --base 44e0993ca868b8a47715620476630caef1ae18ce
+# Navegação de Ingresso e dos CTAs de graduação:
+python3 tools/verify_navigation.py
+
+# Comparação adicional dos formulários com a versão anterior à página de Ingresso:
+python3 tools/verify_navigation.py --base 9fd89fb67bf82254f824eee333069bd850ba2c39
 ```
 
-Esse modo confirma que as páginas anteriores só receberam a troca do item desativado por um link e que os assets existentes (incluindo os scripts dos formulários) estão idênticos à base. Use esse modo apenas quando esse for o escopo desejado para a comparação.
+O verificador de navegação confirma os links para a página independente de Ingresso e que os CTAs das graduações mantêm o curso na query sem âncora. Com `--base`, compara exatamente o HTML dos formulários anteriores e os scripts de envio. O comparador estrito opcional de `tools/blog/verify.py --base` foi usado na implementação inicial do blog; não se aplica às alterações posteriores de navegação e migração da seção de Ingresso.
 
 Na prévia, confira em desktop e celular: menu principal, abertura/fechamento do menu de cursos, seleção de categorias, artigo, sumário, leituras relacionadas e links de graduação/pós. O CTA “Receber informações” encaminha ao formulário já existente; o blog não duplica a integração de envio.
 
