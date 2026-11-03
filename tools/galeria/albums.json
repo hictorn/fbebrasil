@@ -3,10 +3,10 @@
     "slug": "formatura-dos-cursos-tecnicos",
     "title": "Formatura dos cursos técnicos",
     "category": "Formatura",
-    "description": "Uma conquista para celebrar. Confira os registros da formatura dos cursos técnicos da FBE, com os formandos e convidados reunidos para esse momento.",
+    "description": "A Escola FBE realizou a solenidade de formatura dos alunos dos cursos técnicos em Eletrotécnica e Eletromecânica, celebrando uma importante conquista na trajetória acadêmica e profissional dos formandos.",
     "home_cover": "foto-01.jpeg",
     "listing_cover": "foto-02.jpeg",
-    "hero": "foto-03.jpeg",
+    "hero": "foto-04.jpeg",
     "photos": [
       {
         "file": "foto-01.jpeg",
@@ -81,6 +81,14 @@
         "alt": "Formatura dos cursos técnicos da FBE - foto 12"
       }
     ],
-    "gallery_title": "Galeria da formatura"
+    "gallery_title": "Galeria da formatura",
+    "article_title": "FBE celebra a formação de novos técnicos e agradece a presença de representantes do CRT-BA",
+    "paragraphs": [
+      "A Escola FBE realizou a solenidade de formatura dos alunos dos cursos técnicos em Eletrotécnica e Eletromecânica, celebrando uma importante conquista na trajetória acadêmica e profissional dos formandos.",
+      "A instituição agradece a presença do Sr. José Henrique Maia Nascimento de Jesus, Presidente do Conselho Regional dos Técnicos Industriais da Bahia (CRT-BA); da Sra. Cláudia Leite, Vice-Presidente do CRT-BA; e da Professora Núbia Leite, Assessora da Presidência, cuja participação prestigiou esse momento especial e reforçou a importância da integração entre as instituições em prol da educação e da formação profissional.",
+      "A FBE também manifesta seu reconhecimento e gratidão aos professores, que, com dedicação, compromisso e competência, contribuem continuamente para o desenvolvimento dos estudantes, compartilhando conhecimentos e preparando-os para os desafios e as oportunidades do mundo do trabalho.",
+      "A solenidade representou não apenas o encerramento de uma etapa, mas também o início de novos caminhos, sonhos e possibilidades para os profissionais que agora concluem sua formação técnica.",
+      "A todos os convidados, professores, colaboradores e familiares que fizeram parte desse momento, a FBE expressa sua sincera gratidão. Seguimos firmes em nossa missão de promover uma educação de qualidade e contribuir para a transformação de vidas por meio do conhecimento."
+    ]
   }
 ]

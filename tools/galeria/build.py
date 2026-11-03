@@ -146,19 +146,21 @@ def build():
             portrait = {'data-portrait': ''} if photo['height'] > photo['width'] else {}
             photos.append(f'<a class="tg-photo" href="{route}fotos/{photo["file"]}" data-tg-photo="{route}fotos/{photo["file"]}" data-width="{photo["width"]}" data-height="{photo["height"]}" aria-label="Ampliar foto {i+1} de {len(album["photos"])}">{image(album, photo["file"], **portrait)}</a>')
         title = escape(album['title'])
+        article_title = album.get('article_title', album['title'])
+        article_copy = ''.join('<p>' + escape(paragraph) + '</p>' for paragraph in album.get('paragraphs', [album['description']]))
         body = f'''<div class="tg-hero"><div class="container">
   <nav class="tg-breadcrumb" aria-label="Caminho de navegação"><a href="/tecnico/">Início</a> / <a href="{GALLERY}">Galeria</a> / {title}</nav>
-  <h1>{title}</h1>
+  <h1>{escape(article_title)}</h1>
 </div></div>
 <article class="tg-content"><div class="container tg-article">
   <a class="tg-hero-photo" href="{route}fotos/{album['hero']}" data-tg-open="{hero_index}" aria-label="Ampliar imagem principal do álbum">{image(album, album['hero'], loading='eager', fetchpriority='high')}</a>
-  <p class="tg-intro">{escape(album['description'])}</p>
+  <div class="tg-intro">{article_copy}</div>
   <h2 class="tg-album-heading">{escape(album.get('gallery_title', 'Fotos do álbum'))}</h2>
   <p class="tg-album-hint">{len(album['photos'])} fotos · Toque ou clique em uma foto para ampliar.</p>
   <div class="tg-photos">{''.join(photos)}</div>
   <div class="tg-back"><a class="btn btn-dark-outline" href="{GALLERY}">← Voltar para a galeria</a></div>
 </div></article>'''
-        (output / album['slug'] / 'index.html').write_text(page(album['title'], album['description'], route, body, route + 'fotos/' + album['hero'], [('FBE Técnico', '/tecnico/'), ('Galeria', GALLERY), (album['title'], route)], album))
+        (output / album['slug'] / 'index.html').write_text(page(article_title, album['description'], route, body, route + 'fotos/' + album['hero'], [('FBE Técnico', '/tecnico/'), ('Galeria', GALLERY), (album['title'], route)], album))
     ns = 'http://www.sitemaps.org/schemas/sitemap/0.9'
     ET.register_namespace('', ns)
     sitemap = ET.Element(f'{{{ns}}}urlset')
