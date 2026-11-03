@@ -2,7 +2,7 @@
 
 Galeria em HTML estático, publicada no GitHub Pages já utilizado pelo site. As fotos e os links funcionam sem JavaScript; o script acrescenta ampliação, setas, teclado e deslize no celular.
 
-`albums.json` define os álbuns e a ordem de exibição. Cada álbum tem três imagens independentes: `home_cover` para o card da home, `listing_cover` para o card da página de galerias e `hero` para a imagem maior do post. O primeiro álbum usa respectivamente os arquivos originais `01tecnico.jpeg`, `02tecnico.jpeg` e `04tecnico.jpeg` (a capa interna atual corresponde ao arquivo `foto-04.jpg` enviado posteriormente). As 12 fotos enviadas fazem parte do álbum; `019tecnico.jpeg` foi normalizada para `foto-09.jpeg` na sequência.
+`albums.json` define os álbuns e a ordem de exibição. Cada álbum tem três imagens independentes: `home_cover` para o card da home, `listing_cover` para o card da página de galerias e `hero` para a imagem maior do post. O álbum de formatura usa respectivamente os arquivos originais `01tecnico.jpeg`, `02tecnico.jpeg` e `04tecnico.jpeg` (a capa interna atual corresponde ao arquivo `foto-04.jpg` enviado posteriormente). As 12 fotos enviadas fazem parte do álbum; `019tecnico.jpeg` foi normalizada para `foto-09.jpeg` na sequência.
 
 Para incluir outro álbum:
 

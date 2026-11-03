@@ -1,5 +1,65 @@
 [
   {
+    "slug": "instalacoes-eletricas-prediais-turma-2026-1",
+    "title": "Instalações Elétricas Prediais - Turma 2026.1",
+    "category": "Aula prática",
+    "description": "A turma 2026.1 de Eletrotécnica em uma aula prática de Instalações Elétricas Prediais, com orientação da professora Elienai Lima.",
+    "home_cover": "foto-01.jpg",
+    "listing_cover": "foto-01.jpg",
+    "hero": "foto-01.jpg",
+    "cover_position": "center 30%",
+    "photos": [
+      {
+        "file": "foto-01.jpg",
+        "width": 1086,
+        "height": 1448,
+        "alt": "Aula de Instalações Elétricas Prediais da turma 2026.1 de Eletrotécnica - foto 1"
+      },
+      {
+        "file": "foto-02.jpg",
+        "width": 1086,
+        "height": 1448,
+        "alt": "Aula de Instalações Elétricas Prediais da turma 2026.1 de Eletrotécnica - foto 2"
+      },
+      {
+        "file": "foto-03.jpg",
+        "width": 1086,
+        "height": 1448,
+        "alt": "Aula de Instalações Elétricas Prediais da turma 2026.1 de Eletrotécnica - foto 3"
+      },
+      {
+        "file": "foto-04.jpg",
+        "width": 1086,
+        "height": 1448,
+        "alt": "Aula de Instalações Elétricas Prediais da turma 2026.1 de Eletrotécnica - foto 4"
+      },
+      {
+        "file": "foto-05.jpg",
+        "width": 1086,
+        "height": 1448,
+        "alt": "Aula de Instalações Elétricas Prediais da turma 2026.1 de Eletrotécnica - foto 5"
+      },
+      {
+        "file": "foto-06.jpg",
+        "width": 1086,
+        "height": 1448,
+        "alt": "Aula de Instalações Elétricas Prediais da turma 2026.1 de Eletrotécnica - foto 6"
+      },
+      {
+        "file": "foto-07.jpg",
+        "width": 1086,
+        "height": 1448,
+        "alt": "Aula de Instalações Elétricas Prediais da turma 2026.1 de Eletrotécnica - foto 7"
+      }
+    ],
+    "gallery_title": "Fotos da aula",
+    "paragraphs": [
+      "A turma 2026.1 de Eletrotécnica colocou a mão na massa em uma aula de Instalações Elétricas Prediais. 🔧",
+      "Com a orientação da professora Elienai Lima, os alunos trabalharam com interruptores simples, duplos e triplos, desenvolvendo habilidades essenciais para a atuação profissional.",
+      "Na FBE, teoria e prática caminham juntas!"
+    ]
+  },
+  {
     "slug": "formatura-dos-cursos-tecnicos",
     "title": "Formatura - Eletrotécnica e Eletromecânica",
     "category": "Formatura",

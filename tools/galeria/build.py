@@ -22,8 +22,9 @@ def image(album, filename, **attrs):
 
 def card(album, cover):
     title = escape(album.get('card_title', album['title']))
+    cover_attrs = {'style': 'object-position:' + album['cover_position']} if album.get('cover_position') else {}
     return f'''<a class="tg-card" href="{GALLERY}{album['slug']}/">
-        <span class="tg-card-image">{image(album, album[cover])}</span>
+        <span class="tg-card-image">{image(album, album[cover], **cover_attrs)}</span>
         <div class="tg-card-body">
           <span class="tg-card-category">{escape(album['category'])}</span>
           <h3>{title}</h3>
@@ -141,6 +142,8 @@ def build():
     for album in albums:
         route = GALLERY + album['slug'] + '/'
         hero_index = next(i for i, p in enumerate(album['photos']) if p['file'] == album['hero'])
+        hero_photo = album['photos'][hero_index]
+        hero_class = 'tg-hero-photo tg-hero-photo--portrait' if hero_photo['height'] > hero_photo['width'] else 'tg-hero-photo'
         photos = []
         for i, photo in enumerate(album['photos']):
             portrait = {'data-portrait': ''} if photo['height'] > photo['width'] else {}
@@ -153,7 +156,7 @@ def build():
   <h1>{escape(article_title)}</h1>
 </div></div>
 <article class="tg-content"><div class="container tg-article">
-  <a class="tg-hero-photo" href="{route}fotos/{album['hero']}" data-tg-open="{hero_index}" aria-label="Ampliar imagem principal do álbum">{image(album, album['hero'], loading='eager', fetchpriority='high')}</a>
+  <a class="{hero_class}" href="{route}fotos/{album['hero']}" data-tg-open="{hero_index}" aria-label="Ampliar imagem principal do álbum">{image(album, album['hero'], loading='eager', fetchpriority='high')}</a>
   <div class="tg-intro">{article_copy}</div>
   <h2 class="tg-album-heading">{escape(album.get('gallery_title', 'Fotos do álbum'))}</h2>
   <p class="tg-album-hint">{len(album['photos'])} fotos · Toque ou clique em uma foto para ampliar.</p>
