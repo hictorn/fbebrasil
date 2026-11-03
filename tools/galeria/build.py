@@ -21,7 +21,7 @@ def image(album, filename, **attrs):
 
 
 def card(album, cover):
-    title = escape(album['title'])
+    title = escape(album.get('card_title', album['title']))
     return f'''<a class="tg-card" href="{GALLERY}{album['slug']}/">
         <span class="tg-card-image">{image(album, album[cover])}</span>
         <div class="tg-card-body">
