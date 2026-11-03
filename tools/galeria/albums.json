@@ -1,0 +1,86 @@
+[
+  {
+    "slug": "formatura-dos-cursos-tecnicos",
+    "title": "Formatura dos cursos técnicos",
+    "category": "Formatura",
+    "description": "Uma conquista para celebrar. Confira os registros da formatura dos cursos técnicos da FBE, com os formandos e convidados reunidos para esse momento.",
+    "home_cover": "foto-01.jpeg",
+    "listing_cover": "foto-02.jpeg",
+    "hero": "foto-03.jpeg",
+    "photos": [
+      {
+        "file": "foto-01.jpeg",
+        "width": 1280,
+        "height": 960,
+        "alt": "Formatura dos cursos técnicos da FBE - foto 1"
+      },
+      {
+        "file": "foto-02.jpeg",
+        "width": 960,
+        "height": 1280,
+        "alt": "Formatura dos cursos técnicos da FBE - foto 2"
+      },
+      {
+        "file": "foto-03.jpeg",
+        "width": 1280,
+        "height": 960,
+        "alt": "Formatura dos cursos técnicos da FBE - foto 3"
+      },
+      {
+        "file": "foto-04.jpeg",
+        "width": 1280,
+        "height": 720,
+        "alt": "Formatura dos cursos técnicos da FBE - foto 4"
+      },
+      {
+        "file": "foto-05.jpeg",
+        "width": 1280,
+        "height": 720,
+        "alt": "Formatura dos cursos técnicos da FBE - foto 5"
+      },
+      {
+        "file": "foto-06.jpeg",
+        "width": 720,
+        "height": 1280,
+        "alt": "Formatura dos cursos técnicos da FBE - foto 6"
+      },
+      {
+        "file": "foto-07.jpeg",
+        "width": 720,
+        "height": 1280,
+        "alt": "Formatura dos cursos técnicos da FBE - foto 7"
+      },
+      {
+        "file": "foto-08.jpeg",
+        "width": 720,
+        "height": 1280,
+        "alt": "Formatura dos cursos técnicos da FBE - foto 8"
+      },
+      {
+        "file": "foto-09.jpeg",
+        "width": 720,
+        "height": 1280,
+        "alt": "Formatura dos cursos técnicos da FBE - foto 9"
+      },
+      {
+        "file": "foto-10.jpeg",
+        "width": 720,
+        "height": 1280,
+        "alt": "Formatura dos cursos técnicos da FBE - foto 10"
+      },
+      {
+        "file": "foto-11.jpeg",
+        "width": 720,
+        "height": 1280,
+        "alt": "Formatura dos cursos técnicos da FBE - foto 11"
+      },
+      {
+        "file": "foto-12.jpeg",
+        "width": 720,
+        "height": 1280,
+        "alt": "Formatura dos cursos técnicos da FBE - foto 12"
+      }
+    ],
+    "gallery_title": "Galeria da formatura"
+  }
+]

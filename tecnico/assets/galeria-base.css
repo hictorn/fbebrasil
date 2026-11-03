@@ -1,0 +1,370 @@
+/* Identidade visual da home FBE Técnico, compartilhada pelas páginas de galeria. */
+/* ============================================
+   FBE Técnico: folha de estilos 01
+   ============================================ */
+
+:root{
+  --red: #DD303E;
+  --red-dark: #8B222A;
+  --red-hover: #B8252F;
+  --navy: #091E42;
+  --navy-deep: #101860;
+  --navy-soft: #14224d;
+  --gold: #F2B705;
+  --bg: #F9F9F9;
+  --white: #FFFFFF;
+  --border: #EBECF0;
+  --text: #253858;
+  --text-light: #505F79;
+  --whatsapp: #12D194;
+  --whatsapp-dark: #0EAF7C;
+
+  --font-display: "Poppins", "Segoe UI", sans-serif;
+  --font-body: "Inter", "Segoe UI", sans-serif;
+
+  --radius: 14px;
+  --radius-sm: 8px;
+  --shadow: 0 12px 32px rgba(9,30,66,0.08);
+  --shadow-lg: 0 20px 48px rgba(9,30,66,0.16);
+}
+
+*, *::before, *::after{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; overflow-x: clip; width: 100%; }
+
+body{
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+  width: 100%;
+  max-width: 100vw;
+}
+
+h1,h2,h3,h4{ font-family: var(--font-display); color: var(--navy); line-height: 1.2; margin: 0 0 16px; }
+p{ margin: 0 0 16px; }
+a{ color: inherit; text-decoration: none; }
+img{ max-width: 100%; display: block; }
+ul{ margin: 0; padding: 0; list-style: none; }
+
+.container{ width: 100%; max-width: 1200px; margin: 0 auto; padding-left: 24px; padding-right: 24px; }
+
+.eyebrow{
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--red); margin-bottom: 12px;
+}
+.eyebrow--centered{ display: inline-block; }
+
+/* ---------- Botões ---------- */
+.btn{
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  padding: 14px 28px; border-radius: var(--radius-sm);
+  font-family: var(--font-display); font-weight: 600; font-size: 15px;
+  cursor: pointer; border: 2px solid transparent; transition: all .25s ease; white-space: nowrap;
+}
+.btn-primary{ background: var(--red); color: var(--white); box-shadow: 0 8px 24px rgba(221,48,62,0.35); }
+.btn-primary:hover{ background: var(--red-hover); transform: translateY(-2px); }
+.btn-outline{ background: transparent; color: var(--white); border-color: rgba(255,255,255,0.5); }
+.btn-outline:hover{ background: rgba(255,255,255,0.12); border-color: var(--white); }
+.btn-whatsapp{ background: var(--whatsapp); color: var(--white); box-shadow: 0 8px 24px rgba(18,209,148,0.35); }
+.btn-whatsapp:hover{ background: var(--whatsapp-dark); transform: translateY(-2px); }
+.btn-dark-outline{ background: transparent; border-color: var(--navy); color: var(--navy); }
+.btn-dark-outline:hover{ background: var(--navy); color: var(--white); }
+
+/* ---------- Topbar (segmentos) ---------- */
+.topbar{
+  background: linear-gradient(90deg, #1E264A 0%, var(--red-dark) 55%, var(--red) 100%);
+}
+.topbar-inner{
+  display: flex; align-items: stretch; justify-content: center;
+}
+.topbar-btn{
+  flex: 1; max-width: 260px;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 16px 18px; color: rgba(255,255,255,0.92);
+  font-family: var(--font-body); font-size: 13.5px; font-weight: 700; letter-spacing: 0.01em; text-transform: none;
+  border-right: 1px solid rgba(255,255,255,0.18);
+  transition: background .2s ease;
+}
+.topbar-btn:last-child{ border-right: none; }
+.topbar-btn:hover{ background: rgba(255,255,255,0.12); color: #fff; }
+.topbar-btn .dot{ width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+.tb-mobile{ display: none; }
+@media (max-width: 600px){
+  .topbar .container{ padding-left: 0; padding-right: 0; }
+  .topbar-inner{ flex-wrap: nowrap; }
+  .topbar-btn{ font-size: 12.5px; padding: 16px 8px; letter-spacing: 0.01em; }
+  .tb-desktop{ display: none; }
+  .tb-mobile{ display: inline; }
+}
+@media (max-width: 400px){
+  .topbar-btn{ font-size: 11.5px; padding: 16px 4px; gap: 6px; }
+  .topbar-btn .dot{ display: none; }
+}
+
+/* ---------- Header ---------- */
+.site-header{
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(255,255,255,0.96); backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--border);
+}
+.header-inner{ display: flex; align-items: center; justify-content: space-between; padding-top: 14px; padding-bottom: 14px; gap: 20px; }
+.logo img{ height: 58px; width: auto; }
+.logo{ display: flex; align-items: center; gap: 12px; font-family: var(--font-display); font-weight: 700; font-size: 22px; color: var(--navy); }
+.logo .badge-pill{ font-size: 10px; font-weight: 700; letter-spacing: 0.05em; background: #FFC6C2; color: var(--navy); padding: 3px 10px; border-radius: 20px; }
+.main-nav{ display: flex; align-items: center; gap: 30px; }
+.main-nav a{ font-size: 15px; font-weight: 400; letter-spacing: 0.01em; color: var(--navy); font-family: var(--font-body); position: relative; padding: 6px 0; transition: color .2s ease; }
+.main-nav a:hover{ color: var(--red); }
+.header-cta{ font-size: 14px; }
+.nav-toggle{ display: none; background: none; border: none; font-size: 26px; color: var(--navy); cursor: pointer; }
+
+@media (max-width: 860px){
+  .main-nav{
+    /* o header tem backdrop-filter, então é ele o referencial do menu fixo:
+       87px = altura do header, fazendo o painel encostar nele em qualquer rolagem */
+    position: fixed; top: 87px; left: 0; right: 0; background: var(--white);
+    flex-direction: column; align-items: flex-start; gap: 0; padding: 12px 24px 20px;
+    border-bottom: 1px solid var(--border); transform: translateY(-130%);
+    /* visibility garante que o painel some por completo: só com o translate,
+       um menu curto deixa uma faixa branca por cima da topbar */
+    visibility: hidden; transition: transform .3s ease, visibility 0s linear .3s;
+  }
+  .main-nav.open{ transform: translateY(0); visibility: visible; transition: transform .3s ease, visibility 0s; }
+  .main-nav a{ width: 100%; padding: 12px 0; border-bottom: 1px solid var(--border); }
+  .nav-toggle{ display: block; }
+  .header-cta{ display: none; }
+}
+
+/* ---------- Hero ---------- */
+.hero{
+  position: relative; overflow: hidden;
+  background: radial-gradient(circle at 15% 20%, var(--navy-soft), var(--navy) 55%, #060f28 100%);
+  color: var(--white); padding: 40px 0 40px;
+}
+.hero::before{
+  content: ""; position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(9,30,66,0.35), rgba(9,30,66,0.55)),
+    repeating-linear-gradient(120deg, rgba(221,48,62,0.08) 0px, rgba(221,48,62,0.08) 2px, transparent 2px, transparent 60px);
+  -webkit-mask-image: linear-gradient(to bottom, transparent, black 25%, black 75%, transparent);
+  mask-image: linear-gradient(to bottom, transparent, black 25%, black 75%, transparent);
+  pointer-events: none;
+}
+.hero .container{
+  max-width: 1180px;
+}
+/* ---------- Variante clara do hero, exclusiva da home /tecnico/ ---------- */
+.hero-light{
+  position: relative; overflow: hidden;
+  background: var(--bg);
+  padding: 56px 0 64px;
+}
+.hero-banner-slot{
+  width: 100%;
+  line-height: 0;
+}
+.hero-banner-slot img{
+  width: 100%; height: auto;
+  display: block;
+}
+.hero-light .container{ max-width: 1180px; position: relative; z-index: 2; }
+.hero-light .hero-content{ max-width: 800px; margin: 0 auto; text-align: center; }
+.hero-light h1{ color: var(--navy); font-size: clamp(26px, 3.4vw, 40px); font-weight: 700; margin-bottom: 16px; }
+.hero-light h1 mark{ background: none; color: var(--red); }
+.hero-light p.lead{ font-size: 16px; color: var(--text-light); max-width: 640px; margin: 0 auto; }
+.hero-light .path-grid{ margin-top: 40px; max-width: 980px; }
+.hero-light .hero-stats{
+  margin-top: 40px; max-width: 900px; margin-left: auto; margin-right: auto;
+  border: 1px solid var(--border); background: var(--white);
+}
+.hero-light .hero-stat{ border-right: 1px solid var(--border); }
+.hero-light .hero-stat-number{ color: var(--red); }
+.hero-light .hero-stat-label{ color: var(--text-light); }
+@media (max-width: 640px){
+  .hero-light .hero-stat{ border-bottom: 1px solid var(--border); }
+}
+
+.hero-content{ position: relative; z-index: 2; max-width: 800px; }
+.hero-badge{ display: inline-block; background: var(--red); color: var(--white); font-size: 12px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; padding: 8px 16px; border-radius: 6px; margin-bottom: 18px; }
+.hero h1{ color: var(--white); font-size: clamp(26px, 3.4vw, 40px); font-weight: 700; margin-bottom: 16px; }
+.hero h1 mark{ background: none; color: #CAFF39; }
+.accent-yellow{ color: #CAFF39; }
+.title-mobile{ display: none; }
+@media (max-width: 640px){
+  .title-desktop{ display: none; }
+  .title-mobile{ display: inline; }
+}
+.hero p.lead{ font-size: 16px; color: rgba(255,255,255,0.85); max-width: 640px; margin-bottom: 0; }
+
+.hero-stats{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 40px;
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 14px;
+  background: rgba(255,255,255,0.02);
+  overflow: hidden;
+}
+.hero-stat{ padding: 18px 16px; border-right: 1px solid rgba(255,255,255,0.14); }
+.hero-stat:last-child{ border-right: none; }
+.hero-stat-number{ font-family: var(--font-display); font-weight: 700; font-size: clamp(15px, 1.35vw, 19px); color: #CAFF39; line-height: 1.25; }
+.hero-stat-label{ font-size: 12px; color: rgba(255,255,255,0.68); text-transform: uppercase; letter-spacing: 0.015em; margin-top: 5px; line-height: 1.35; }
+@media (max-width: 640px){
+  .hero-stats{ grid-template-columns: repeat(2, 1fr); }
+  .hero-stat{ border-bottom: 1px solid rgba(255,255,255,0.14); }
+  .hero-stat:nth-child(2n){ border-right: none; }
+  .hero-stat:nth-child(n+3){ border-bottom: none; }
+}
+
+section{ padding: 84px 0; }
+.section-head{ max-width: 640px; margin: 0 auto 48px; text-align: center; }
+.section-head h2{ font-size: clamp(28px, 3.2vw, 38px); }
+.section-head p{ color: var(--text-light); font-size: 16px; }
+.bg-white{ background: var(--white); }
+.bg-alt{ background: var(--bg); }
+.bg-navy{ background: var(--navy); color: var(--white); }
+.bg-navy h2, .bg-navy h3{ color: var(--white); }
+.whatsapp-cta{ background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 44px; text-align: center; box-shadow: var(--shadow); max-width: 900px; margin: 0 auto; }
+.whatsapp-cta h2{ margin-bottom: 8px; }
+.whatsapp-cta p{ color: var(--text-light); margin-bottom: 24px; }
+.inscricao-photo img{ width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius); box-shadow: var(--shadow); display: block; }
+
+/* ---------- Cards de cursos ---------- */
+.courses-grid{ display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+@media (max-width: 720px){ .courses-grid{ grid-template-columns: 1fr; } }
+.course-card{ background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; box-shadow: var(--shadow); transition: transform .3s ease, box-shadow .3s ease; position: relative; overflow: hidden; display: flex; flex-direction: column; }
+.course-card:hover{ transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+.course-card::before{ content: ""; position: absolute; top: 0; left: 0; right: 0; height: 6px; background: linear-gradient(90deg, var(--red), var(--navy)); }
+.course-card .tag{ display: inline-flex; align-items: center; justify-content: center; line-height: 1; font-size: 11px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; background: #FDEAEA; color: var(--red-dark); padding: 6px 12px; border-radius: 6px; margin-bottom: 14px; }
+.course-card h3{ font-size: 24px; margin-bottom: 10px; }
+.course-card p{ color: var(--text-light); font-size: 15px; }
+.course-meta{ display: flex; gap: 18px; margin: 23px 0 15px; font-size: 13px; color: var(--text-light); flex-wrap: wrap; }
+.course-meta span{ display: flex; align-items: center; gap: 6px; }
+/* card em coluna: a etiqueta precisa de align-self, senão estica na largura toda;
+   e o parágrafo cresce, empurrando a linha de horas e o botão para a mesma altura
+   nos dois cards, mesmo com descrições de tamanhos diferentes */
+.course-card .tag{ align-self: flex-start; }
+.course-card p{ flex: 1 1 auto; }
+.course-card .btn{ width: 100%; }
+
+/* ---------- Cards de escolha de caminho (Técnico x Livre) ---------- */
+.path-grid{ display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; max-width: 980px; margin: 0 auto; }
+@media (max-width: 720px){ .path-grid{ grid-template-columns: 1fr; } }
+.path-card{
+  background: var(--white); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 36px 32px; box-shadow: var(--shadow); text-decoration: none; color: inherit;
+  display: flex; flex-direction: column; position: relative; overflow: hidden;
+  transition: transform .3s ease, box-shadow .3s ease, border-color .2s ease;
+}
+.path-card:hover{ transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: var(--red); }
+.path-card::before{ content: ""; position: absolute; top: 0; left: 0; right: 0; height: 6px; background: linear-gradient(90deg, var(--red), var(--navy)); }
+.path-card-icon{ font-size: 34px; margin-bottom: 6px; }
+.path-card .tag{ display: inline-flex; align-self: flex-start; align-items: center; line-height: 1; font-size: 11px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; background: #FDEAEA; color: var(--red-dark); padding: 6px 12px; border-radius: 6px; margin-bottom: 14px; }
+.path-card h3{ font-size: 24px; line-height: 29.8px; margin-bottom: 10px; }
+.path-card h3 .accent-script{ font-family: "Caveat", cursive; font-weight: 700; color: var(--gold); font-size: 1.42em; line-height: 1; display: inline-block; margin-top: -8px; }
+.path-card-start-row{ display: flex; align-items: center; gap: 6px; font-size: 13.5px; font-weight: 600; color: var(--red-dark); margin-bottom: 12px; }
+.path-card p{ color: var(--text-light); font-size: 15px; flex: 1 1 auto; margin: 0; }
+.path-card-cta{ display: inline-flex; align-items: center; gap: 6px; font-weight: 700; color: var(--navy); font-size: 15px; margin-top: 8px; transition: gap .2s ease; }
+.path-card:hover .path-card-cta{ gap: 10px; color: var(--red); }
+
+/* ---------- Features ---------- */
+.hrow-list{ display: flex; flex-direction: column; gap: 0; max-width: 900px; margin: 0 auto; }
+.hrow-item{ display: grid; grid-template-columns: 160px 1fr; gap: 24px; align-items: baseline; padding: 26px 8px; border-bottom: 1px solid rgba(255,255,255,0.12); }
+.hrow-item:first-child{ padding-top: 0; }
+.hrow-item:last-child{ border-bottom: none; padding-bottom: 0; }
+.hrow-label{ color: #CAFF39; font-size: 13px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; }
+.hrow-body h3{ color: var(--white); font-size: 19px; margin-bottom: 8px; }
+.hrow-body p{ color: rgba(255,255,255,0.7); font-size: 14.5px; line-height: 1.65; margin: 0; max-width: 560px; }
+@media (max-width: 640px){
+  .hrow-item{ grid-template-columns: 1fr; gap: 6px; }
+}
+
+/* ---------- Formulário de contato ---------- */
+.contact-grid{ display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: stretch; }
+@media (max-width: 860px){ .contact-grid{ grid-template-columns: 1fr !important; } .inscricao-photo{ display: none; } }
+.contact-info-item{ display: flex; gap: 14px; margin-bottom: 22px; }
+.contact-info-item .ic{ width: 40px; height: 40px; border-radius: 10px; background: var(--bg); color: var(--red); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 18px; }
+.contact-info-item strong{ display: block; color: var(--navy); font-size: 14px; }
+.contact-info-item span{ font-size: 14px; color: var(--text-light); }
+.contact-image{ min-height: 320px; }
+@media (max-width: 860px){ .contact-image{ min-height: 0; } }
+/* foto e formulário com a mesma largura (607px cada, igual ao form do FBE Brasil).
+   Os dois somam 1262 com o intervalo, mais que os 1152 da coluna de conteúdo,
+   então este bloco sangra 55px para cada lado. Abaixo de 1300px volta ao normal. */
+.inscricao-grid{ grid-template-columns: 1fr 1fr; }
+@media (min-width: 1300px){
+  .inscricao-grid{ width: calc(100% + 110px); margin-left: -55px; margin-right: -55px; }
+}
+.form-card{ background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; box-shadow: var(--shadow); }
+.form-row{ margin-bottom: 18px; }
+.form-row label{ display: block; font-size: 13px; font-weight: 600; color: var(--navy); margin-bottom: 6px; }
+.form-row input, .form-row select, .form-row textarea{
+  width: 100%; padding: 12px 14px; border: 1px solid var(--border); border-radius: var(--radius-sm);
+  font-family: var(--font-body); font-size: 14.5px; background: var(--bg); transition: border-color .2s ease;
+}
+.form-row input:focus, .form-row select:focus, .form-row textarea:focus{ outline: none; border-color: var(--red); background: var(--white); }
+.form-row textarea{ resize: vertical; min-height: 110px; }
+.form-success{ display: none; background: #EAFBF4; color: #0E7C56; border: 1px solid #B8ECD5; padding: 14px 16px; border-radius: var(--radius-sm); font-size: 14px; margin-top: 16px; }
+.form-success.show{ display: block; }
+
+/* ---------- Footer ---------- */
+/* navy escrito no valor porque o --navy do Técnico (#091E42) é mais escuro
+   que o dos outros sites; assim o rodapé fica idêntico sem mexer na paleta */
+.site-footer{ background: #1E264A; color: rgba(255,255,255,0.72); padding: 64px 0 0; font-size: 15px;
+  box-shadow: 0 2px 0 #1E264A; }
+.footer-grid{ display: grid; grid-template-columns: 1.3fr 1fr 1fr 1fr; gap: 32px; padding-bottom: 40px; }
+@media (max-width: 800px){ .footer-grid{ grid-template-columns: 1fr 1fr; } }
+.footer-col img{ height: 58px; width: auto; margin-bottom: 14px; }
+.footer-col p{ text-transform: none; font-size: 15px; line-height: 1.6; color: rgba(255,255,255,0.72); }
+.footer-logo{ font-family: var(--font-display); font-size: 24px; font-weight: 700; color: var(--white); margin-bottom: 14px; }
+.footer-col h4{ color: var(--white); font-size: 13px; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 20px; font-family: var(--font-display); font-weight: 700; }
+.footer-col ul li{ margin-bottom: 12px; font-size: 15px; line-height: 1.5; }
+.footer-col ul li a:hover{ color: var(--white); }
+.footer-social{ display: flex; gap: 12px; margin-top: 22px; }
+.footer-social a{ width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; transition: background .2s ease; }
+.footer-social a:hover{ background: rgba(255,255,255,0.18); }
+.footer-bottom{ display: flex; justify-content: space-between; align-items: center; padding: 24px 0; font-size: 13px; color: rgba(255,255,255,0.5); border-top: 1px solid rgba(255,255,255,0.1); }
+
+/* ---------- WhatsApp float button ---------- */
+.wa-float{
+  position: fixed; bottom: 26px; right: 26px; width: 58px; height: 58px; border-radius: 50%;
+  background: var(--whatsapp); display: flex; align-items: center; justify-content: center;
+  color: #fff; font-size: 26px; box-shadow: 0 10px 24px rgba(18,209,148,0.4); z-index: 200; transition: transform .25s ease;
+}
+.wa-float:hover{ transform: translateY(-3px) scale(1.05); }
+
+@media (max-width: 600px){
+  .container{ padding-left: 22px; padding-right: 22px; }
+  .main-nav{ padding: 8px 16px 16px; }
+  section{ padding: 56px 0; }
+  .hero{ padding: 48px 0 48px; }
+  .hero-light{ padding: 28px 0 56px; }
+  .form-card, .course-card, .path-card{ padding: 22px; }
+  .site-footer{ padding: 48px 0 0; }
+  .site-footer .container{ padding-left: 30px; padding-right: 30px; }
+  .footer-grid{ grid-template-columns: 1fr 1fr; gap: 32px 20px; padding-bottom: 32px; }
+  .footer-col img{ height: 50px; }
+  .footer-col h4{ margin-bottom: 16px; }
+  .footer-bottom{ flex-direction: column; gap: 6px; text-align: center; padding: 20px 0; }
+}
+
+@media (max-width: 480px){
+  .hero-badge{ font-size: 11px; padding: 7px 12px; }
+  .section-head{ margin-bottom: 32px; }
+  .btn{ font-size: 14px; padding: 13px 20px; }
+  .path-card h3{ font-size: 18px; }
+}
+
+/* ---------- Banner de página interna (view Contato) ---------- */
+.page-banner{
+  background: linear-gradient(120deg, var(--navy-deep), var(--red-dark));
+  color: var(--white);
+  padding: 70px 0;
+}
+.page-banner .eyebrow{ color: #FFC6C2; }
+.page-banner h1{ color: var(--white); font-size: clamp(28px, 3.6vw, 42px); margin-bottom: 0; }
+.breadcrumb{ font-size: 13px; color: rgba(255,255,255,0.7); margin-bottom: 14px; }
+.breadcrumb a{ cursor: pointer; }
+.breadcrumb a:hover{ color: var(--white); }
