@@ -968,39 +968,39 @@ a.loc-mini-card:hover{border-color:var(--navy);background:var(--white);box-shado
       <h2>Últimas notícias do Colégio FBE</h2>
       <p>Acompanhe avisos, eventos e novidades da nossa comunidade escolar.</p>
     </div>
-    <div class="dest-grid dest-grid--mural">
+    <div class="dest-grid dest-grid--mural" id="muralLatest">
       <div class="dest-card">
-        <a class="dest-img" href="mural/?post=pl-pagador-promessas" style="background-image:url('mural-pl-pagador-promessas-capa.png');display:block"></a>
-        <div class="dest-body">
-          <span style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--red)">Projeto Literário</span>
-          <h4 style="margin-top:4px">O Pagador de Promessas</h4>
-          <a href="mural/?post=pl-pagador-promessas">Ler mais →</a>
+          <a class="dest-img" href="/colegio/mural/?post=sarau-2026-samba" aria-label="Ler publicação" style="background-image:url('/colegio/mural/sarau-2026-samba/foto-01.webp');display:block"></a>
+          <div class="dest-body">
+            <span style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--red)">Eventos</span>
+            <h4 style="margin-top:4px">Sarau 2026: Samba</h4>
+            <a href="/colegio/mural/?post=sarau-2026-samba">Ler mais →</a>
+          </div>
         </div>
-      </div>
       <div class="dest-card">
-        <a class="dest-img" href="mural/?post=volta-aulas" style="background-image:url('mural-volta-aulas-capa.jpg');display:block"></a>
-        <div class="dest-body">
-          <span style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--red)">Recepção</span>
-          <h4 style="margin-top:4px">Volta às Aulas 2026</h4>
-          <a href="mural/?post=volta-aulas">Ler mais →</a>
+          <a class="dest-img" href="/colegio/mural/?post=aldeia-casa-da-fonte" aria-label="Ler publicação" style="background-image:url('/colegio/mural-aldeia-casa-da-fonte-capa.jpg');display:block"></a>
+          <div class="dest-body">
+            <span style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--red)">Visita pedagógica</span>
+            <h4 style="margin-top:4px">Visita à Aldeia Casa da Fonte</h4>
+            <a href="/colegio/mural/?post=aldeia-casa-da-fonte">Ler mais →</a>
+          </div>
         </div>
-      </div>
       <div class="dest-card">
-        <a class="dest-img" href="mural/?post=carnaval" style="background-image:url('mural-carnaval-capa.jpg');display:block"></a>
-        <div class="dest-body">
-          <span style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--red)">Eventos</span>
-          <h4 style="margin-top:4px">Carnaval FBE</h4>
-          <a href="mural/?post=carnaval">Ler mais →</a>
+          <a class="dest-img" href="/colegio/mural/?post=sao-joao-2026" aria-label="Ler publicação" style="background-image:url('/colegio/mural-sao-joao-2026-capa.png');display:block"></a>
+          <div class="dest-body">
+            <span style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--red)">Eventos</span>
+            <h4 style="margin-top:4px">São João 2026</h4>
+            <a href="/colegio/mural/?post=sao-joao-2026">Ler mais →</a>
+          </div>
         </div>
-      </div>
       <div class="dest-card">
-        <a class="dest-img" href="mural/?post=pascoa" style="background-image:url('mural-pascoa-capa.jpg');display:block"></a>
-        <div class="dest-body">
-          <span style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--red)">Eventos</span>
-          <h4 style="margin-top:4px">Páscoa 2026</h4>
-          <a href="mural/?post=pascoa">Ler mais →</a>
+          <a class="dest-img" href="/colegio/mural/?post=doacoes" aria-label="Ler publicação" style="background-image:url('/colegio/mural-doacoes-capa.png');display:block"></a>
+          <div class="dest-body">
+            <span style="font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--red)">Projeto Social</span>
+            <h4 style="margin-top:4px">Doações</h4>
+            <a href="/colegio/mural/?post=doacoes">Ler mais →</a>
+          </div>
         </div>
-      </div>
     </div>
     <div class="gal-preview-cta">
       <a href="mural/" class="btn btn-primary">Ver todas as notícias →</a>
@@ -2495,5 +2495,43 @@ document.addEventListener('DOMContentLoaded',()=>{
 </script>
 
 <script src="/assets/fbe-mobile-navigation.01419eed2a54.js"></script>
+<script>
+// A página interna do Mural define a ordem das quatro notícias da home.
+(async function syncLatestMural(){
+  const grid=document.getElementById('muralLatest');
+  if(!grid)return;
+  try{
+    const base=new URL('/colegio/mural/',location.origin);
+    const response=await fetch(base,{cache:'no-cache'});
+    if(!response.ok)return;
+    const source=await response.text();
+    const doc=new DOMParser().parseFromString(source,'text/html');
+    const slugs=new Map(Array.from(source.matchAll(/'([^']+)':'(view-mural[^']+)'/g),m=>[m[2],m[1]]));
+    const latest=Array.from(doc.querySelectorAll('#view-mural .dest-grid > .dest-card')).slice(0,4);
+    if(latest.length!==4)return;
+    const fragment=document.createDocumentFragment();
+    for(const original of latest){
+      const image=original.querySelector('.dest-img');
+      const title=original.querySelector('h4');
+      const category=original.querySelector('.dest-body > span');
+      const slug=image&&slugs.get(image.getAttribute('data-view'));
+      const match=image&&image.style.backgroundImage.match(/url\(["']?(.*?)["']?\)$/);
+      if(!slug||!title||!category||!match)return;
+      const target=new URL('?post='+encodeURIComponent(slug),base).href;
+      const card=document.createElement('div');card.className='dest-card';
+      const cover=document.createElement('a');cover.className='dest-img';cover.href=target;
+      cover.setAttribute('aria-label',title.textContent.trim());cover.style.display='block';
+      cover.style.backgroundImage='url("'+new URL(match[1],base).href+'")';
+      const body=document.createElement('div');body.className='dest-body';
+      const label=category.cloneNode(false);label.textContent=category.textContent;
+      const heading=document.createElement('h4');heading.style.marginTop='4px';heading.textContent=title.textContent;
+      const link=document.createElement('a');link.href=target;link.textContent='Ler mais →';
+      body.append(label,heading,link);card.append(cover,body);fragment.append(card);
+    }
+    grid.replaceChildren(fragment);
+  }catch(error){ /* Mantém os quatro cards publicados caso a consulta falhe. */ }
+})();
+</script>
+
 </body>
 </html>
