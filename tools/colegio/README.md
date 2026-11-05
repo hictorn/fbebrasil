@@ -59,6 +59,26 @@ O Google Analytics e o EmailJS conservam suas configurações existentes.
 Não altere os nomes dos campos ou identificadores de serviço/template ao
 editar o visual dos formulários. A verificação nunca envia pré-inscrições.
 
+## Medição das pré-inscrições de 2027
+
+`templates/tracking.js` instala o Pixel Matrículas (`514422286798390`) nas
+páginas do Colégio e registra `PageView`. O formulário `admissaoForm` registra
+o evento Meta `Lead` e o evento GA4 `generate_lead` somente depois de o
+EmailJS confirmar o envio. Visitar a página, clicar no botão ou uma falha no
+envio não contam como pré-inscrição. O formulário geral de contato também
+não conta como pré-inscrição.
+
+Os eventos definidos pelo código recebem rótulos fixos e um identificador
+de evento; os valores de nome, telefone, e-mail e demais campos não são
+incluídos nesses parâmetros. Falhas ou bloqueios dos serviços de medição
+não impedem o envio ou a mensagem de confirmação do formulário.
+
+`verify.py` executa também `verify_tracking.mjs`: ele testa os scripts
+publicados com serviços simulados, incluindo sucesso, falha, bloqueio da
+medição e preservação das integrações originais. Nenhum teste envia e-mails,
+pré-inscrições ou eventos reais à Meta/ao Google. O recebimento real na conta
+da Meta deve ser conferido antes de ativar a campanha.
+
 Para conferir a preservação dos formulários, estilos e integração contra
 uma revisão anterior à migração:
 
