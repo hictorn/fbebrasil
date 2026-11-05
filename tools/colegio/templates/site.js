@@ -43,7 +43,9 @@ document.addEventListener('DOMContentLoaded',()=>{
   function closeNav(){if(n)n.classList.remove('open');if(t)t.textContent='\u2630';unlockScroll();document.querySelectorAll('.nav-drop[open]').forEach(d=>d.removeAttribute('open'))}
 
   // Each page now has its own HTML; links use normal browser navigation.
-  if(typeof gtag==='function')gtag('event','view_pagina',{pagina:document.body.dataset.page,origem:'url'});
+  try {
+    if(typeof gtag==='function')gtag('event','view_pagina',{pagina:document.body.dataset.page,origem:'url'});
+  } catch (_) { /* O formulário continua disponível se a medição falhar. */ }
 
   // botão "Conheça o ensino" - rola até a seção de segmentos, calculando a posição na hora do clique
   document.querySelectorAll('.js-scroll-ensino').forEach(el=>{
@@ -326,14 +328,18 @@ document.addEventListener('DOMContentLoaded',()=>{
       if(alvo)alvo.scrollIntoView({behavior:'smooth',block:'start'});
     });
   });
-  // formulário de pré-inscrição (simulado, mesmo comportamento do form de contato)
+  // Pré-inscrição: mantém o envio original e mede somente a confirmação de sucesso.
   const admF=document.getElementById('admissaoForm');
   if(admF){admF.addEventListener('submit',e=>{
     e.preventDefault();
     const b=admF.querySelector('button[type="submit"]');
+    if(b.disabled)return;
     b.disabled=true;b.textContent='Enviando...';
     emailjs.sendForm('service_n40ybhn','template_ax5qtqc',admF).then(()=>{
       admF.querySelector('.form-success').style.display='block';
+      try {
+        if(window.fbeAdmissionsTracking)window.fbeAdmissionsTracking.preRegistrationSucceeded();
+      } catch (_) { /* Falha na medição não altera o resultado do envio. */ }
       admF.reset();b.disabled=false;b.textContent='Enviar pré-inscrição';
       setTimeout(()=>{admF.querySelector('.form-success').style.display='none'},6000);
     }).catch(()=>{

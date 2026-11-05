@@ -106,6 +106,7 @@ def verify(base=None):
     for path in (ROOT / "colegio/assets").glob("*.js"):
         subprocess.run(["node", "--check", str(path)], check=True)
     subprocess.run(["node", str(SOURCE / "verify_legacy.mjs")], check=True)
+    subprocess.run(["node", str(SOURCE / "verify_tracking.mjs")], check=True)
 
     if base:
         original = subprocess.check_output(["git", "show", base + ":colegio/index.html"], cwd=ROOT, text=True)

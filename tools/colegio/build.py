@@ -156,6 +156,7 @@ def build(check=False):
     for kind in ("site", "mural"):
         css[kind] = asset(kind, (SOURCE / "templates" / f"{kind}.css").read_text(), "css")
     js = asset("site", (SOURCE / "templates/site.js").read_text(), "js")
+    tracking = asset("tracking", (SOURCE / "templates/tracking.js").read_text(), "js")
     legacy_source = (SOURCE / "templates/legacy.js").read_text()
     legacy_source = legacy_source.replace("@@PAGE_ROUTES@@", json.dumps(
         {p["legacy_page"]: p["route"] for p in pages if p.get("legacy_page")}, ensure_ascii=False))
@@ -174,6 +175,7 @@ def build(check=False):
         shell = rewrite(shell, page["source_route"], pages)
         result = shell.replace("@@METADATA@@", metadata(page)).replace("@@CSS@@", css[kind])
         result = result.replace("@@JS@@", js).replace("@@LEGACY@@", legacy)
+        result = result.replace("@@TRACKING@@", tracking)
         result = result.replace("@@PAGE@@", esc(page.get("legacy_page", page.get("legacy_post", "mural"))))
         result = result.replace("@@CONTENT@@", body)
         assert "@@" not in result, page["key"]
