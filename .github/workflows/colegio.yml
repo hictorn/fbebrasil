@@ -1,0 +1,31 @@
+name: Colégio FBE
+on:
+  pull_request:
+    paths:
+      - 'colegio/**'
+      - 'tools/colegio/**'
+      - '.github/workflows/colegio.yml'
+      - 'robots.txt'
+  push:
+    branches: [main]
+    paths:
+      - 'colegio/**'
+      - 'tools/colegio/**'
+      - '.github/workflows/colegio.yml'
+      - 'robots.txt'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify pages, links, SEO and legacy URL compatibility
+        run: python3 tools/colegio/verify.py
