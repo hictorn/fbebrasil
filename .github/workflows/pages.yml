@@ -1,0 +1,52 @@
+name: Publicar site FBE
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Verify navigation and generated pages
+        run: |
+          python3 tools/verify_navigation.py
+          python3 tools/blog/verify.py
+      - name: Prepare static website
+        run: |
+          mkdir _site
+          cp index.html robots.txt CNAME _site/
+          cp -R assets colegio faculdade tecnico _site/
+      - name: Upload website
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+          retention-days: 1
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy website
+        id: deployment
+        uses: actions/deploy-pages@v5
+        with:
+          timeout: 1800000
