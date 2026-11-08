@@ -38,6 +38,8 @@
   (function(){emailjs.init({publicKey:"qRBryErY3jpIZQthO"});})();
 </script>
 <link rel="stylesheet" href="/assets/fbe-mobile-navigation.7b1951be0bff.css">
+<link rel="stylesheet" href="/colegio/assets/home-banners.b946968b8be6.css">
+<script src="/colegio/assets/home-banners.4b27b35f1098.js" defer></script>
 </head>
 <body data-page="home">
 
@@ -85,10 +87,22 @@
 <main id="conteudo">
 <div id="view-home" class="view active">
 
-<!-- ═══ BANNER DE MATRÍCULAS ═══ -->
-<div class="banner">
-  <img src="/colegio/banner-matriculas-2027.jpg" width="2048" height="853" alt="Matrículas abertas 2027 no Colégio FBE. Agende sua visita." style="object-position:left 51%">
-</div>
+<!-- ═══ BANNERS DA HOME ═══ -->
+<section class="home-banners" aria-label="Destaques do Colégio FBE">
+  <div id="home-banner-slides">
+    <a class="banner" href="/colegio/admissao/">
+      <img src="/colegio/banner-matriculas-2027.jpg" width="2048" height="853" alt="Matrículas abertas 2027 no Colégio FBE. Agende sua visita." fetchpriority="high">
+    </a>
+    <a class="banner banner--dependencia" href="/colegio/dependencia/" hidden>
+      <img src="/colegio/banner-dependencia-2027.webp" width="2048" height="853" alt="Programa de Dependência. O orgulho de ver seu filho seguir em frente. Conheça o programa.">
+    </a>
+  </div>
+  <button class="home-banners__next" type="button" aria-label="Próximo banner" aria-controls="home-banner-slides" hidden>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="m9 6 6 6-6 6"/>
+    </svg>
+  </button>
+</section>
 
 <!-- ═══ SEJA FBE ═══ -->
 <section id="sobre" class="section">

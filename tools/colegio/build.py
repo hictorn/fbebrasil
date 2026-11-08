@@ -172,6 +172,10 @@ def build(check=False):
         if page["view"] == "view-home":
             body = body.replace('<h2>Uma educação completa vai muito além da sala de aula</h2>',
                                 '<h1>Uma educação completa vai muito além da sala de aula</h1>')
+            banner_css = asset("home-banners", (SOURCE / "templates/home-banners.css").read_text(), "css")
+            banner_js = asset("home-banners", (SOURCE / "templates/home-banners.js").read_text(), "js")
+            shell = shell.replace("</head>", f'<link rel="stylesheet" href="{banner_css}">\n'
+                                  f'<script src="{banner_js}" defer></script>\n</head>', 1)
         shell = rewrite(shell, page["source_route"], pages)
         result = shell.replace("@@METADATA@@", metadata(page)).replace("@@CSS@@", css[kind])
         result = result.replace("@@JS@@", js).replace("@@LEGACY@@", legacy)
