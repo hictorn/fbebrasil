@@ -471,6 +471,10 @@ a.loc-mini-card:hover{border-color:var(--navy);background:var(--white);box-shado
 .adm-form-contact strong{display:block;font-size:13.5px;color:var(--text)}
 .adm-form-contact span,.adm-form-contact a{display:block;font-size:13px;color:var(--text-light)}
 .adm-form-contact a{color:var(--red)}
+@media(max-width:700px){
+  .adm-form-contacts-row{flex-direction:column}
+  .adm-form-contact--tel{margin-left:0}
+}
 .adm-form-card{max-width:920px;margin:0 auto;background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:36px 32px;box-shadow:var(--shadow)}
 .adm-form-fields{display:grid;grid-template-columns:repeat(3,1fr);gap:16px 20px;margin-bottom:16px}
 .adm-form-card label{display:block;font-size:13px;font-weight:600;color:var(--text);margin-bottom:6px}
@@ -561,17 +565,72 @@ a.loc-mini-card:hover{border-color:var(--navy);background:var(--white);box-shado
 
 /* ── Segmentos ── */
 .seg-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-.seg-card{border-radius:var(--radius);overflow:hidden;position:relative;min-height:240px;display:flex;align-items:flex-start;transition:transform .2s}
+.seg-card{
+  --shade:linear-gradient(90deg, rgba(0, 0, 0, .66), rgba(0, 0, 0, .53) 41%, rgba(0, 0, 0, .24) 65%, transparent 96%);
+  display:flex;
+  align-items:stretch;
+  min-height:264px;
+  position:relative;
+  overflow:hidden;
+  border-radius:var(--radius);
+  background:var(--shade), var(--photo) center / cover no-repeat #262831;
+  transition:transform .2s;
+}
 .seg-card:hover{transform:translateY(-4px)}
-.seg-card:hover{transform:translateY(-4px)}
-.seg-card--fund{background:linear-gradient(180deg,rgba(30,38,74,0) 40%,var(--navy) 100%),var(--navy-soft)}
-.seg-card--med{background:linear-gradient(180deg,rgba(139,34,42,0) 40%,var(--red-dark) 100%),var(--red-dark)}
-.seg-body{padding:32px 28px;position:relative;z-index:1}
+.seg-card--fund{
+  --photo:url("/colegio/assets/segmento-fundamental-ii.webp");
+  --tag-base:#284878;
+  --tag-grade:#315fa8;
+}
+.seg-card--med{
+  --photo:url("/colegio/assets/segmento-ensino-medio.webp");
+  --tag-base:#802d3d;
+  --tag-grade:#ad3546;
+}
+.seg-body{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  width:100%;
+  padding:32px 28px;
+  position:relative;
+  z-index:1;
+}
 .seg-body h3{color:#fff;font-size:24px;margin-bottom:8px}
-.seg-body p{color:rgba(255,255,255,.8);font-size:14px;line-height:1.6;margin:0 0 20px}
+.seg-body p{color:#fff;font-size:14px;line-height:1.6;margin:0 0 20px;max-width:min(60%, 35ch)}
+.seg-body h3,.seg-body p{text-shadow:0 1px 3px rgba(0, 0, 0, .6)}
+.seg-body .btn{margin-top:auto}
 .seg-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px}
-.seg-tag{background:rgba(255,255,255,.15);color:rgba(255,255,255,.9);font-size:11px;font-weight:600;padding:4px 12px;border-radius:16px;font-family:var(--font-display)}
-@media(max-width:700px){.seg-grid{grid-template-columns:1fr}}
+.seg-tag{
+  background:var(--tag-base);
+  color:#fff;
+  font-size:11px;
+  font-weight:600;
+  font-family:var(--font-display);
+  padding:4px 12px;
+  border-radius:16px;
+  box-shadow:inset 0 0 0 1px rgba(255, 255, 255, .24);
+}
+.seg-tag:first-child{background:var(--tag-grade)}
+@media(max-width:880px) and (min-width:701px){
+  .seg-body{padding-inline:22px}
+  .seg-body p{max-width:72%}
+}
+@media(max-width:700px){
+  .seg-grid{grid-template-columns:1fr}
+  .seg-card{
+    --shade:linear-gradient(90deg, rgba(0, 0, 0, .72), rgba(0, 0, 0, .60) 46%, rgba(0, 0, 0, .30) 73%, rgba(0, 0, 0, .06));
+    min-height:272px;
+    background-position:center, 74% center;
+  }
+  .seg-body{padding:26px 22px}
+  .seg-body h3{font-size:clamp(19px, 5.8vw, 24px)}
+  .seg-body p{max-width:min(75%, 33ch)}
+}
+@media(prefers-reduced-motion:reduce){
+  .seg-card{transition:none}
+  .seg-card:hover{transform:none}
+}
 
 /* ── Vídeo Institucional ── */
 .video-wrap{max-width:860px;margin:0 auto;border-radius:var(--radius);overflow:hidden;aspect-ratio:16/9;background:#000;box-shadow:var(--shadow-lg);display:flex;align-items:center;justify-content:center;position:relative}
