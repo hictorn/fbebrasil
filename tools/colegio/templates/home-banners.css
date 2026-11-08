@@ -1,4 +1,5 @@
 .home-banners {
+  --control-inset: clamp(0px, 0.8vw, 12px);
   position: relative;
 }
 
@@ -25,10 +26,9 @@
   z-index: 1;
 }
 
-.home-banners__next {
+.home-banners__control {
   position: absolute;
   top: 50%;
-  inset-inline-end: clamp(0px, 0.8vw, 12px);
   z-index: 2;
   transform: translateY(-50%);
   width: 44px;
@@ -41,12 +41,20 @@
   cursor: pointer;
 }
 
-.home-banners__next:not([hidden]) {
+.home-banners__previous {
+  inset-inline-start: var(--control-inset);
+}
+
+.home-banners__next {
+  inset-inline-end: var(--control-inset);
+}
+
+.home-banners__control:not([hidden]) {
   display: grid;
   place-items: center;
 }
 
-.home-banners__next svg {
+.home-banners__control svg {
   box-sizing: content-box;
   width: 16px;
   height: 16px;
@@ -55,11 +63,11 @@
   background: rgb(0 0 0 / 42%);
 }
 
-.home-banners__next:is(:hover, :focus-visible) svg {
+.home-banners__control:is(:hover, :focus-visible) svg {
   background: rgb(0 0 0 / 65%);
 }
 
-.home-banners__next:focus-visible {
+.home-banners__control:focus-visible {
   outline: 2px solid white;
   outline-offset: -3px;
 }
