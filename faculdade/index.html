@@ -43,6 +43,21 @@ fbq('track', 'PageView');
 
 <!-- End Meta Pixel Code -->
 <link rel="stylesheet" href="/faculdade/assets/css/home.adc883fc11c1.css">
+<style>
+@media (hover: hover) and (pointer: fine) {
+  .home-proposal .home-grad-cover img { transition: filter .25s ease, transform .25s ease; }
+  .home-proposal .home-grad-cover::after { transition: opacity .25s ease; }
+  .home-proposal .home-grad-card:hover .home-grad-cover img { filter: saturate(.86) brightness(1.05); }
+  .home-proposal .home-grad-card:hover .home-grad-cover::after { opacity: .82; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-proposal .home-grad-card,
+  .home-proposal .home-grad-cover img,
+  .home-proposal .home-grad-cover::after { transition: none; }
+  .home-proposal .home-grad-card:hover,
+  .home-proposal .home-grad-card:hover .home-grad-cover img { transform: none; }
+}
+</style>
 <link rel="canonical" href="https://www.fbebrasil.com.br/faculdade/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
