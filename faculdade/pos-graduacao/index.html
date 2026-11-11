@@ -23,6 +23,19 @@ fbq('track', 'PageView');
 
 <!-- End Meta Pixel Code -->
 <link rel="stylesheet" href="/faculdade/assets/css/pos.5e468af282fe.css">
+<style>
+@media (hover: hover) and (pointer: fine) {
+  .compact-card .course-cover img { transition: filter .25s ease, transform .25s ease; }
+  .compact-card .course-cover::after { transition: opacity .25s ease; }
+  .compact-card:hover .course-cover img { filter: saturate(.86) brightness(1.05); }
+  .compact-card:hover .course-cover::after { opacity: .82; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .compact-card .course-cover img,
+  .compact-card .course-cover::after { transition: none; }
+  .compact-card:hover .course-cover img { transform: none; }
+}
+</style>
 <link rel="canonical" href="https://www.fbebrasil.com.br/faculdade/pos-graduacao/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
