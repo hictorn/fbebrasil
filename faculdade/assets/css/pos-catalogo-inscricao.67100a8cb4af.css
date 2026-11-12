@@ -1,0 +1,135 @@
+@font-face {
+  font-family: FBECoursePoppins;
+  src: url("/faculdade/assets/fontes/4c96b87f63c1ed46.woff") format("woff");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+#catalog-view h1,
+#catalog-view h2,
+#request-title {
+  font-family: FBEFooterPoppins, "Segoe UI", sans-serif;
+  font-weight: 700;
+}
+#catalog-view p {
+  font: 400 16px/1.75 FBECoursePoppins, "Segoe UI", sans-serif;
+}
+:is(#catalog-view, .related-section) .compact-card h3 {
+  font: 700 clamp(18px, 1.6vw, 20px)/1.24 FBEFooterPoppins, "Segoe UI", sans-serif;
+  letter-spacing: -.02em;
+}
+:is(#catalog-view, .related-section) .compact-hours {
+  font-family: FBECoursePoppins, "Segoe UI", sans-serif;
+}
+#request-dialog {
+  --request-control-border: #587489;
+  --request-control-bg: #183042;
+  background: #112637;
+  border-color: #355368;
+}
+#request-dialog .dialog-inner > p,
+#request-dialog .consent,
+#request-dialog .dialog-close {
+  color: #c1d1df;
+}
+#request-dialog .field input:not(.fbe-select-search-input),
+#request-dialog .fbe-select-trigger,
+#request-dialog .fbe-select-search {
+  background: var(--request-control-bg);
+}
+#request-dialog .field input:not(.fbe-select-search-input):not(:focus),
+#request-dialog .fbe-select-trigger:not(:hover, :focus-visible, [aria-expanded="true"]) {
+  border-color: var(--request-control-border);
+}
+
+#request-dialog .field input::placeholder,
+#request-dialog .fbe-select-placeholder {
+  color: #a4b6c8;
+}
+#request-dialog .fbe-select-trigger:hover {
+  background: #20394c;
+}
+#request-dialog .fbe-select-popup {
+  background: #1d394b;
+  border-color: #587489;
+}
+#request-dialog .fbe-select-option:not([aria-selected=true]):is(:hover, :focus-visible) {
+  background: #294b60;
+}
+/* Catalog card proposal */
+#catalog-view .course-grid {
+  gap: 22px;
+}
+
+:is(#catalog-view, .related-section) .compact-card {
+  border-color: #ffffff16;
+  border-radius: 14px;
+  background: #111d31;
+}
+
+:is(#catalog-view, .related-section) .compact-card .course-cover {
+  height: clamp(218px, 21vw, 248px);
+}
+
+:is(#catalog-view, .related-section) .compact-card .course-cover img,
+:is(#catalog-view, .related-section) .compact-card:hover .course-cover img {
+  filter: none;
+}
+
+:is(#catalog-view, .related-section) .compact-card .course-cover::after {
+  background: linear-gradient(to top, rgba(5, 11, 20, .62), rgba(5, 11, 20, .24) 26%, transparent 52%);
+  pointer-events: none;
+}
+
+:is(#catalog-view, .related-section) .compact-card:hover .course-cover::after {
+  opacity: 1;
+}
+
+:is(#catalog-view, .related-section) .cover-info {
+  bottom: 16px;
+  left: 18px;
+  right: 18px;
+  text-shadow: 0 1px 3px #050b14, 0 2px 9px #050b14b0;
+}
+
+:is(#catalog-view, .related-section) .compact-area {
+  color: #f4d7dc;
+  font-size: 11px;
+  margin-bottom: 5px;
+}
+
+:is(#catalog-view, .related-section) .compact-meta {
+  min-height: 55px;
+  padding: 10px 18px;
+  border-top: 1px solid #ffffff12;
+  background: #111d31;
+}
+
+:is(#catalog-view, .related-section) .compact-hours {
+  color: #c9d4e7;
+  gap: 7px;
+}
+
+:is(#catalog-view, .related-section) .compact-link {
+  min-height: 34px;
+  color: #f5f7fb;
+  font-weight: 700;
+}
+
+:is(#catalog-view, .related-section) .compact-link:hover {
+  color: #ffc4cd;
+}
+
+:is(#catalog-view, .related-section) .compact-card:focus-within {
+  border-color: #e98a94;
+}
+
+:is(#catalog-view, .related-section) .compact-card a:focus-visible {
+  outline-offset: -3px;
+}
+
+@media (max-width: 720px) {
+  #catalog-view .course-grid { gap: 16px; }
+  :is(#catalog-view, .related-section) .compact-card .course-cover { height: clamp(216px, 59vw, 245px); }
+}
