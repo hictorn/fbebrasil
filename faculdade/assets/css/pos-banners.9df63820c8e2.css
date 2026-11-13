@@ -1,0 +1,52 @@
+/* Shared introductory layout for the postgraduate course pages. */
+.course-opening .course-opening-grid {
+  --course-banner-width: 292px;
+  --course-banner-height: calc(var(--course-banner-width) * 382 / 292);
+  grid-template-columns: var(--course-banner-width) minmax(0, 1fr);
+  column-gap: 30px;
+  align-items: start;
+}
+.course-opening .course-opening-grid > :is(.course-portrait, .course-portrait-frame) {
+  width: 100%;
+  height: var(--course-banner-height);
+  align-self: start;
+}
+.course-opening .course-opening-copy {
+  height: auto;
+  min-height: var(--course-banner-height);
+  grid-template-rows: auto auto 1fr auto auto;
+  row-gap: 16px;
+}
+.course-opening .course-opening-intro {
+  display: grid;
+  gap: 8px;
+  max-width: 680px;
+  align-self: center;
+}
+.course-opening .course-opening-intro > p {
+  margin: 0;
+  line-height: 1.75;
+  text-wrap: balance;
+}
+@media (max-width: 1100px) {
+  .course-opening .course-opening-grid {
+    --course-banner-width: clamp(226px, 23vw, 252px);
+    column-gap: 28px;
+  }
+}
+@media (min-width: 901px) and (max-width: 1024px) {
+  #course-view .course-opening-intro > p { font-size: 14px; }
+}
+@media (min-width: 901px) and (max-width: 960px) {
+  #course-view .course-opening-intro > p { font-size: 13px; }
+}
+@media (max-width: 900px) {
+  .course-opening .course-opening-grid {
+    grid-template-columns: minmax(0, 1fr);
+    column-gap: 0;
+  }
+  .course-opening .course-opening-copy {
+    min-height: 0;
+    grid-template-rows: auto;
+  }
+}
