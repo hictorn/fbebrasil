@@ -1,0 +1,305 @@
+:root {
+  --foto-camilla: url("/faculdade/assets/pos/docentes/camilla.0dc6f7f8806d.jpg");
+  --foto-chris: url("/faculdade/assets/pos/docentes/chris.2cef5bc7e071.jpg");
+  --foto-daniella: url("/faculdade/assets/pos/docentes/daniella.01365c4a498c.jpg");
+  --foto-emanuella: url("/faculdade/assets/pos/docentes/emanuella.f9d741ea3b10.jpg");
+  --foto-esmeralda: url("/faculdade/assets/pos/docentes/esmeralda.d4295bec7c88.jpg");
+  --foto-fernanda: url("/faculdade/assets/pos/docentes/fernanda.fb87f4e8a972.jpg");
+  --foto-larissa: url("/faculdade/assets/pos/docentes/larissa.a4b2cf1965e2.jpg");
+  --foto-leonellea: url("/faculdade/assets/pos/docentes/leonellea.85eefcb04c11.jpg");
+  --foto-lorena: url("/faculdade/assets/pos/docentes/lorena.fdcd4b2b64b9.jpg");
+  --foto-luciana: url("/faculdade/assets/pos/docentes/luciana.ec3c404ce265.jpg");
+  --foto-patricia: url("/faculdade/assets/pos/docentes/patricia.416ece760ee5.jpg");
+  --foto-pauliane: url("/faculdade/assets/pos/docentes/pauliane.1188bb35a8bf.jpg");
+  --foto-sara: url("/faculdade/assets/pos/docentes/sara.d084bd93f697.jpg");
+  --foto-thais: url("/faculdade/assets/pos/docentes/thais.9a2c66d6b7c7.jpg");
+}
+
+.course-subnav { background: #183042; color: #fff; }
+.course-subnav .course-section-links { gap: 22px; padding-inline: 18px; }
+.course-section-links a {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  min-height: 52px;
+  padding-inline: 10px;
+  color: #fff;
+  font: 600 13px/1.3 FBEHeaderPoppins, "Segoe UI", sans-serif;
+  white-space: nowrap;
+}
+.course-section-links a:is(:hover, :focus-visible) { background: #ffffff18; }
+.course-section-links a:focus-visible { outline: 2px solid #fff; outline-offset: -4px; }
+html:has(.course-page > .course-subnav) {
+  scroll-padding-top: calc(var(--review-height) + var(--header-height) + 60px);
+}
+.course-page .detail-section[id] { scroll-margin-top: 0; }
+.faculty-profile-title,
+.course-page :is(h1, h2, h3) {
+  font-family: FBEFooterPoppins, "Segoe UI", sans-serif;
+  font-weight: 700;
+}
+.course-page > .course-body { padding-bottom: 0; }
+.course-page > #curso-duvidas { padding: 64px 0; }
+.course-page > #curso-duvidas .faq-list { max-width: none; }
+.course-page > #curso-duvidas .faq-list details { border: 1px solid var(--line); }
+.course-page > #curso-duvidas .faq-list details:is(:hover, :focus-within, [open]) {
+  background: var(--surface-raised);
+}
+.course-page > #curso-duvidas .faq-list details > p { max-width: 84ch; }
+.course-page > #curso-duvidas + .related-section { padding-top: 56px; }
+.course-page .related-section .compact-card .course-cover::after {
+  background: linear-gradient(to top, #050b1499, #050b1433 14%, transparent 37%);
+}
+@media (max-width: 680px) {
+  .course-page > #curso-duvidas { padding: 48px 0; }
+  .course-page > #curso-duvidas + .related-section { padding-top: 44px; }
+  .course-subnav .course-section-links { gap: 4px; padding-inline: 14px; }
+  .course-section-links a { min-height: 48px; }
+}
+.faculty-portrait-track {
+  min-width: 0;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(165px, 1fr);
+  gap: 14px;
+  padding-bottom: 7px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: var(--subtle) transparent;
+}
+.faculty-portrait-track:focus { outline: none; }
+.faculty-portrait-card {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: flex-end;
+  min-width: 0;
+  aspect-ratio: 3 / 4;
+  max-height: 306px;
+  overflow: hidden;
+  border-radius: 12px;
+  background: var(--surface-raised);
+  scroll-snap-align: start;
+}
+.faculty-card-trigger {
+  align-self: stretch;
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  color: var(--text);
+  text-decoration: none;
+  background: linear-gradient(to top, #050b14ee, #050b1466 25%, transparent 47%), var(--faculty-photo);
+  background-position: center, var(--portrait-position);
+  background-size: cover, var(--portrait-size);
+  background-repeat: no-repeat;
+}
+.faculty-card-trigger:focus-visible {
+  outline: 2px solid white;
+  outline-offset: -3px;
+}
+.faculty-portrait-copy {
+  padding: 15px 16px;
+  text-shadow: 0 1px 4px #050b14, 0 2px 8px #050b14;
+}
+.faculty-portrait-role {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 600;
+}
+.faculty-portrait-role--coordination { color: #d6a0aa; }
+.course-page .faculty-portrait-copy h3 {
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.4;
+  margin: 0 0 5px;
+  letter-spacing: 0;
+}
+.faculty-profile-link { font: 600 13px/1.6 Inter, "Segoe UI", sans-serif; }
+.faculty-profile-link span { margin-left: 5px; }
+.faculty-card-trigger:focus-visible .faculty-profile-link { text-decoration: underline; }
+@media (hover: hover) {
+  .faculty-card-trigger:hover .faculty-profile-link { text-decoration: underline; }
+}
+@media (max-width: 560px) {
+  .faculty-portrait-track { grid-auto-columns: clamp(170px, 65vw, 225px); }
+}
+
+.faculty-portrait-heading,
+.faculty-portrait-track { width: 100%; }
+.faculty-portrait-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.course-page #professores-title {
+  font-family: FBEFooterPoppins, "Segoe UI", sans-serif;
+  font-size: 48px;
+  line-height: 1.25;
+  letter-spacing: -.025em;
+  font-weight: 700;
+  margin: 0 0 6px;
+}
+.faculty-portrait-heading p {
+  color: var(--muted);
+  margin: 0;
+}
+.faculty-portrait-controls {
+  display: flex;
+  gap: 10px;
+  flex: none;
+}
+.faculty-portrait-arrow {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 0;
+  padding: 0;
+  background: #ffffff23;
+  color: var(--text);
+  cursor: pointer;
+}
+.faculty-portrait-arrow:hover:not(:disabled) { background: #ffffff38; }
+.faculty-portrait-arrow:focus-visible { outline: 2px solid var(--text); outline-offset: 3px; }
+.faculty-portrait-arrow:disabled { opacity: .48; cursor: default; }
+.faculty-portrait-arrow span {
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  transform: translateX(-1px) rotate(45deg);
+}
+.faculty-portrait-arrow[data-faculty-step="-1"] span {
+  transform: translateX(1px) rotate(225deg);
+}
+.faculty-portrait-track {
+  grid-auto-columns: minmax(246px, 1fr);
+  scrollbar-width: none;
+}
+.faculty-portrait-card { height: 328px; max-height: none; aspect-ratio: auto; }
+@media (max-width: 1023px) {
+  .course-page #professores-title { font-size: 36px; }
+}
+@media (max-width: 767px) {
+  .course-page #professores-title { font-size: 30px; }
+}
+@media (max-width: 560px) {
+  .faculty-portrait-track { grid-auto-columns: clamp(170px, 65vw, 225px); }
+  .faculty-portrait-card { height: auto; aspect-ratio: 3 / 4; }
+  .faculty-portrait-controls { gap: 7px; }
+}
+
+:is(.faculty-profile-dialog[open], .faculty-profile-fallback:target) {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  overflow: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+}
+.faculty-profile-fallback { display: none; }
+.faculty-profile-fallback:target {
+  z-index: 5000;
+  background: #030712bc;
+}
+body:has(.faculty-profile-fallback:target, .faculty-profile-dialog[open]) { overflow: hidden; }
+.faculty-profile-backdrop {
+  position: absolute;
+  inset: 0;
+}
+.faculty-profile-dialog::backdrop { background: #030712bc; }
+.faculty-profile-dialog {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.faculty-profile-panel {
+  position: relative;
+  flex: none;
+  width: min(760px, 100%);
+  min-height: 422px;
+  margin: auto;
+  padding: 32px 28px;
+  display: flex;
+  align-items: center;
+  background: #111c31;
+  border: 1px solid #33405a;
+  border-radius: 14px;
+  color: var(--text);
+}
+.faculty-profile-layout {
+  display: grid;
+  width: 100%;
+  grid-template-columns: clamp(210px, calc(100vw - 480px), 267px) minmax(0, 1fr);
+  align-items: center;
+  gap: 26px;
+}
+.faculty-profile-photo {
+  aspect-ratio: 3 / 4;
+  border-radius: 10px;
+  background: var(--faculty-photo) var(--portrait-position) / var(--portrait-size) no-repeat;
+}
+.faculty-profile-copy {
+  overflow-wrap: anywhere;
+}
+.faculty-profile-panel .dialog-close {
+  text-decoration: none;
+  z-index: 1;
+}
+.faculty-profile-panel .eyebrow { margin-bottom: 7px; }
+.faculty-profile-title {
+  font-size: clamp(20px, 4vw, 28px);
+  line-height: 1.23;
+  margin: 0 24px 14px 0;
+}
+.faculty-profile-details { margin: 0; }
+.faculty-profile-details dt { font-weight: 700; }
+.faculty-profile-details dd {
+  margin: 3px 0 13px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.faculty-profile-details dd:last-child { margin-bottom: 0; }
+@media (max-width: 640px) {
+  .faculty-profile-panel {
+    min-height: 0;
+    padding: 28px 22px 24px;
+    align-items: flex-start;
+  }
+  .faculty-profile-layout { grid-template-columns: minmax(0, 1fr); }
+  .faculty-profile-photo { display: none; }
+  .faculty-profile-title { margin-bottom: 12px; }
+  .faculty-profile-details dd { margin-bottom: 10px; line-height: 1.55; }
+  .faculty-profile-details dd:last-child { margin-bottom: 0; }
+}
+
+
+#curso-conteudo .discipline-name {
+  font: 600 var(--font-body)/1.6 FBEHeaderPoppins, "Segoe UI", sans-serif;
+  letter-spacing: normal;
+}
+
+#curso-conteudo .discipline-hours {
+  font: 600 12px/1.8 FBEHeaderPoppins, "Segoe UI", sans-serif;
+}
+
+#curso-conteudo .discipline-list details > p {
+  font: 400 var(--font-body)/1.75 FBECoursePoppins, "Segoe UI", sans-serif;
+}
+
+#curso-conteudo .curriculum-total strong {
+  font-family: FBEFooterPoppins, "Segoe UI", sans-serif;
+  font-weight: 700;
+}
