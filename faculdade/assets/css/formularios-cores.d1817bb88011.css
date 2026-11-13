@@ -1,0 +1,139 @@
+.hero-form-card,
+#request-dialog,
+.catalog-controls {
+  --fbe-form-surface: #112637;
+  --fbe-form-field: #183042;
+  --fbe-form-search: #1d394b;
+  --fbe-form-frame: #355368;
+  --fbe-form-border: #587489;
+  --fbe-form-text: #e8edf5;
+  --fbe-form-label: #c1d1df;
+  --fbe-form-muted: #a4b6c8;
+  --fbe-form-focus: #e7838f;
+  --fbe-form-action: #dd303e;
+}
+
+.hero-form-card,
+#request-dialog {
+  color: var(--fbe-form-text);
+  background: var(--fbe-form-surface);
+  border-color: var(--fbe-form-frame);
+}
+
+.hero-form-card {
+  --text-light: var(--fbe-form-label);
+  border: 1px solid var(--fbe-form-frame);
+}
+
+.hero-form-card h3,
+#request-dialog #request-title {
+  color: var(--fbe-form-text);
+}
+
+.home-proposal .hero-form-card .hero-form-intro,
+.hero-form-card .hf-row label,
+#request-dialog .dialog-inner > p,
+#request-dialog .dialog-close,
+#request-dialog :is(.field, .consent) {
+  color: var(--fbe-form-label);
+}
+
+.hero-form-card #hero-form :is(input:not([type="hidden"], [type="checkbox"]), textarea, select, .formation-select-trigger),
+#request-dialog .field > input:not(.fbe-select-search-input),
+#request-dialog :is(.field > select, .fbe-select-trigger),
+.catalog-controls :is(.catalog-search, .fbe-select-trigger) {
+  background: var(--fbe-form-field);
+  border-color: var(--fbe-form-border);
+  color: var(--fbe-form-text);
+  color-scheme: dark;
+}
+
+.hero-form-card #hero-form :is(input, textarea)::placeholder,
+#request-dialog .field input::placeholder,
+#request-dialog .fbe-select-placeholder,
+.hero-form-card #hero-form :is(.formation-select-value.is-placeholder, .formation-select-trigger svg),
+.catalog-controls .catalog-search > .icon,
+.catalog-controls .catalog-search input::placeholder {
+  color: var(--fbe-form-muted);
+}
+
+#request-dialog .fbe-select-trigger:hover {
+  background: var(--fbe-form-field);
+}
+
+.catalog-controls .catalog-search input {
+  color: var(--fbe-form-text);
+  color-scheme: dark;
+}
+
+.hero-form-card #hero-form :is(input:not([type="checkbox"]):focus, textarea:focus, select:focus, .formation-select-trigger:focus-visible, .formation-select-trigger[aria-expanded="true"], .formation-select.is-invalid .formation-select-trigger),
+#request-dialog :is(.field > input:focus, .field > select:focus, .fbe-select-trigger:focus-visible, .fbe-select-trigger[aria-expanded="true"], .fbe-select.is-invalid .fbe-select-trigger),
+.catalog-controls :is(.catalog-search:focus-within, .fbe-select-trigger:focus-visible, .fbe-select-trigger[aria-expanded="true"]) {
+  border-color: var(--fbe-form-focus);
+  box-shadow: 0 0 0 2px #e7838f24;
+}
+
+.hero-form-card #hero-form .formation-select-popup,
+#request-dialog .fbe-select-popup,
+.catalog-controls .fbe-select-popup {
+  background: var(--fbe-form-surface);
+  border-color: var(--fbe-form-border);
+}
+
+#request-dialog .fbe-select-search {
+  background: var(--fbe-form-search);
+  border-color: var(--fbe-form-frame);
+  color-scheme: dark;
+}
+
+#request-dialog .fbe-select-search:focus-within {
+  border-color: var(--fbe-form-border);
+}
+
+#request-dialog .fbe-select-search-input::placeholder,
+#request-dialog .fbe-select-hint,
+#request-dialog .fbe-select-empty {
+  color: var(--fbe-form-muted);
+}
+
+.hero-form-card #hero-form .formation-select-option,
+:is(#request-dialog, .catalog-controls) .fbe-select-option {
+  background: transparent;
+  color: var(--fbe-form-label);
+}
+
+.hero-form-card #hero-form .formation-select-option:is(.is-active, :hover),
+:is(#request-dialog, .catalog-controls) .fbe-select-option:not([aria-selected="true"]):is(:hover, :focus-visible) {
+  background: var(--fbe-form-search);
+  color: var(--fbe-form-text);
+}
+
+.hero-form-card #hero-form .formation-select-option[aria-selected="true"],
+:is(#request-dialog, .catalog-controls) .fbe-select-option[aria-selected="true"] {
+  background: #522b3b;
+  color: #ffb2bd;
+}
+
+.hero-form-card #hero-form .formation-select-error {
+  color: #ffb2bd;
+}
+
+.hero-form-card #hero-form input[type="checkbox"],
+#request-dialog .consent input {
+  accent-color: var(--fbe-form-action);
+}
+
+.hero-form-card #hero-form button[type="submit"],
+#request-dialog .request-form button[type="submit"],
+.catalog-controls .catalog-search button[type="submit"] {
+  background: var(--fbe-form-action);
+  border-color: var(--fbe-form-action);
+  color: #fff;
+}
+
+.hero-form-card #hero-form button[type="submit"]:hover,
+#request-dialog .request-form button[type="submit"]:hover,
+.catalog-controls .catalog-search button[type="submit"]:hover {
+  background: #bb2534;
+  border-color: #bb2534;
+}
