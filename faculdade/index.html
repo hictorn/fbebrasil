@@ -102,6 +102,11 @@ fbq('track', 'PageView');
   display: block;
 }
 
+.banner-home-slide:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: -3px;
+}
+
 .banner-home-slide::before {
   position: absolute;
   inset: 0;
@@ -317,12 +322,12 @@ src="https://www.facebook.com/tr?id=851652597881424&ev=PageView&noscript=1"
 
 <!-- HERO -->
 <section id="topo" class="hero banner-home">
-  <div class="banner-home-slide">
+  <a class="banner-home-slide" href="#cursos" aria-label="Conheça os cursos de graduação">
     <h1 class="banner-screenreader-text">Do primeiro dia à conquista do diploma.</h1>
-  </div>
-  <div class="banner-home-slide banner-home-slide--post" hidden>
+  </a>
+  <a class="banner-home-slide banner-home-slide--post" href="/faculdade/pos-graduacao/" aria-label="Conheça os cursos de pós-graduação" hidden>
     <span class="banner-screenreader-text">Pós-graduação FBE. Leve sua experiência mais longe.</span>
-  </div>
+  </a>
   <div class="banner-home-arrows">
     <button class="banner-home-arrow" type="button" data-banner-step="-1" aria-label="Banner anterior" hidden>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 6-6 6 6 6"/></svg>
