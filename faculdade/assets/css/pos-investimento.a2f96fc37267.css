@@ -1,0 +1,76 @@
+#curso-investimento { scroll-margin-top: 16px; }
+.investment-panel {
+  width: fit-content;
+  max-width: 100%;
+  padding: clamp(20px, 4vw, 34px);
+  border: 1px solid #ffffff22;
+  border-radius: 18px;
+  background: var(--surface-raised);
+}
+#curso-investimento h2 { margin: 0 0 20px; }
+.investment-installment-label { margin: 0; color: var(--muted); font-size: 16px; line-height: 1.125; }
+.investment-installment-label strong { color: var(--text); }
+.investment-value {
+  margin: -.17em 0 12px;
+  color: #f2cb83;
+  font: 700 clamp(42px, 7vw, 58px)/1.04 FBEHeaderInter, system-ui, sans-serif;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.investment-currency { font-size: .62em; }
+.investment-value sup {
+  margin-inline-start: .12em;
+  font-size: .38em;
+  line-height: 0;
+  vertical-align: 1em;
+}
+.investment-condition {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+.investment-condition strong { color: var(--text); }
+.investment-inquiry {
+  margin: 18px 0 0;
+  padding-top: 14px;
+  border-top: 1px solid #ffffff23;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.6;
+}
+.investment-enroll {
+  width: fit-content;
+  min-height: 44px;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+  padding: 8px 16px;
+}
+.course-section-links a[href="#curso-investimento"] { color: var(--text); }
+@media (max-width: 520px) {
+  #course-view .course-subnav .course-section-links {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 4px;
+    padding-inline: 10px;
+  }
+  #course-view .course-subnav .course-section-links a {
+    justify-content: center;
+    padding-inline: 4px;
+    font-size: 11px;
+    line-height: 1.25;
+    text-align: center;
+    white-space: normal;
+  }
+  #course-view .course-subnav .course-section-links:has(> a:nth-child(5)) {
+    grid-template-columns: repeat(5, minmax(min-content, 1fr));
+    gap: 3px;
+    padding-inline: 8px;
+  }
+  #course-view .course-subnav .course-section-links:has(> a:nth-child(5)) a {
+    padding-inline: 2px;
+    font-size: 10px;
+  }
+}
