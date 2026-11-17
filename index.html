@@ -382,6 +382,14 @@ section{ padding: 84px 0; }
 @media (hover: hover) and (pointer: fine){
   .seg-card:hover .seg-link{ gap: 15px; color: var(--red); }
 }
+@media (min-width: 981px){
+  @supports (grid-template-rows: subgrid){
+    .seg-grid{ row-gap: 0; }
+    .seg-card, .seg-body{ display: grid; grid-template-rows: subgrid; }
+    .seg-card{ grid-row: span 6; }
+    .seg-body{ grid-row: span 5; }
+  }
+}
 @media (max-width: 980px){
   .seg-grid{ grid-template-columns: repeat(2, 1fr); }
 }
@@ -946,7 +954,7 @@ section{ padding: 84px 0; }
         <div class="seg-body">
           <h3>Faculdade FBE</h3>
           <div class="seg-public">Graduação noturna, reconhecida pelo MEC</div>
-          <p>Bolsas de até 74% na graduação e corpo docente de mestres e doutores.</p>
+          <p>Bolsas de até 74% na graduação, aulas presenciais no Imbuí e professores mestres e doutores.</p>
           <ul class="seg-list">
             <li>8 cursos de graduação</li>
             <li>11 cursos de pós-graduação</li>
