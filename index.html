@@ -638,6 +638,8 @@ section{ padding: 84px 0; }
 .faq-item.open .faq-q .sinal{ transform: rotate(45deg); background: rgba(221,48,62,0.1); }
 .faq-a{ max-height: 0; overflow: hidden; transition: max-height .35s ease; }
 .faq-a p{ padding: 0 24px 22px; font-size: 15.5px; color: var(--text-light); line-height: 1.7; margin: 0; }
+.faq-a a{ color: var(--red-dark); text-decoration: underline; text-underline-offset: 3px; }
+.faq-item:not(.open) .faq-a a{ visibility: hidden; }
 
 @media (max-width: 700px){
   /* 17px em vez de 24: desconta a entrelinha vazia acima das letras do eyebrow,
@@ -948,6 +950,7 @@ section{ padding: 84px 0; }
           <ul class="seg-list">
             <li>Direito, Enfermagem, Odontologia e Psicologia</li>
             <li>Administração e três engenharias</li>
+            <li><strong>11 cursos de pós-graduação</strong> em Direito e Segurança Pública, Saúde, Educação, Direitos Humanos e Gestão</li>
           </ul>
           <span class="seg-link">Ver a graduação &rarr;</span>
         </div>
@@ -1204,6 +1207,10 @@ section{ padding: 84px 0; }
       <div class="faq-item">
         <button type="button" class="faq-q">Quais cursos de graduação estão disponíveis?<span class="sinal">+</span></button>
         <div class="faq-a"><p>São oito cursos em turno noturno: Administração, Direito, Enfermagem, Engenharia Civil, Engenharia de Computação, Engenharia de Produção, Odontologia e Psicologia.</p></div>
+      </div>
+      <div class="faq-item">
+        <button type="button" class="faq-q">Quais pós-graduações a Faculdade FBE oferece?<span class="sinal">+</span></button>
+        <div class="faq-a"><p>A Faculdade FBE oferece 11 cursos de pós-graduação nas áreas de Direito e Segurança Pública, Saúde, Educação, Direitos Humanos e Gestão. <a href="/faculdade/pos-graduacao/">Veja o catálogo de pós-graduação.</a></p></div>
       </div>
       <div class="faq-item">
         <button type="button" class="faq-q">A FBE oferece bolsas de estudo?<span class="sinal">+</span></button>
