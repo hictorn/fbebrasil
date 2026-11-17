@@ -43,7 +43,7 @@ python3 tools/verify_navigation.py --base 9fd89fb67bf82254f824eee333069bd850ba2c
 
 O verificador de navegação confirma os links para a página independente de Ingresso e que os CTAs das graduações mantêm o curso na query sem âncora. Com `--base`, compara exatamente o HTML dos formulários anteriores e os scripts de envio. O comparador estrito opcional de `tools/blog/verify.py --base` foi usado na implementação inicial do blog; não se aplica às alterações posteriores de navegação e migração da seção de Ingresso.
 
-Na prévia, confira em desktop e celular: menu principal, abertura/fechamento do menu de cursos, seleção de categorias, artigo, sumário, leituras relacionadas e links de graduação/pós. O CTA “Receber informações” encaminha ao formulário já existente; o blog não duplica a integração de envio.
+Na prévia, confira em desktop e celular: menu principal, abertura/fechamento do menu de cursos, seleção de categorias, artigo, sumário, leituras relacionadas e links de graduação/pós. O CTA “Inscreva-se” encaminha ao formulário já existente; o blog não duplica a integração de envio.
 
 O workflow `Blog FBE` verifica os arquivos gerados e os links nos pull requests. Não realiza deploy. As quatro publicações iniciais são propostas editoriais para revisão institucional no PR; confirme o conteúdo e ajuste suas datas se a publicação ocorrer depois de 31/10/2026. Não há promessas de empregabilidade, preços ou condições de matrícula adicionadas pelo blog.
 
