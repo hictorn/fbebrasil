@@ -56,4 +56,12 @@
     window.fbq('init', PIXEL_ID);
     window.fbq('trackSingle', PIXEL_ID, 'PageView');
   });
+
+  // Cliques no WhatsApp (GA4 clique_whatsapp), com o botão (origem) e a página.
+  safely(() => document.addEventListener('click', function(e) {
+    const a = e.target.closest && e.target.closest('a[href*="wa.me/"],a[href*="whatsapp.com/send"]');
+    if (!a || typeof window.gtag !== 'function') return;
+    const pagina = (document.body && document.body.dataset.page) || 'home';
+    safely(() => window.gtag('event', 'clique_whatsapp', {origem: a.closest('footer')?'rodape':a.matches('.wa-float,.floating-chat')?'botao_flutuante':a.closest('.sub-sidebar')?'card_matricula':a.closest('.adm-hero')?'banner_admissao':a.closest('.adm-cta')?'faixa_cta':'card_whatsapp', pagina}));
+  }, true));
 })(window, document);

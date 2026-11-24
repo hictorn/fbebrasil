@@ -27,6 +27,16 @@
   gtag('js', new Date());
   gtag('config', 'G-T5VY6DEC5Q');
 </script>
+<script>
+  /* Medição de cliques no WhatsApp (GA4 clique_whatsapp) */
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href*="wa.me/"],a[href*="whatsapp.com/send"]');
+    if (!a || typeof window.gtag !== 'function' || /clique_whatsapp/.test(a.getAttribute('onclick') || '')) return;
+    var s = location.pathname.split('/').filter(Boolean), p = {origem: a.closest('footer')?'rodape':a.matches('.wa-float,.floating-chat')?'botao_flutuante':a.closest('.sub-sidebar')?'card_matricula':a.closest('.adm-hero')?'banner_admissao':a.closest('.adm-cta')?'faixa_cta':'card_whatsapp'};
+    if (s[1] === 'graduacao' && s[2]) p.curso = s[2]; else p.pagina = s[1] || 'faculdade_home';
+    try { gtag('event', 'clique_whatsapp', p); } catch (_) {}
+  }, true);
+</script>
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
