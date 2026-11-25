@@ -31,6 +31,14 @@ COURSES = {
     "pos-graduacao/educacao-afrocentrada-tecnologias-e-territorios": "Pós em Educação Afrocentrada, Tecnologias e Territórios",
     "pos-graduacao/enfermagem-em-saude-da-mulher-alta-complexidade-e-cuidado-integral": "Pós em Enfermagem em Saúde da Mulher",
     "pos-graduacao/penal-e-processo-penal-constitucional-teoria-e-pratica": "Pós em Penal e Processo Penal Constitucional",
+    "pos-graduacao/tribunal-do-juri-e-audiencia-de-custodia": "Pós em Tribunal do Júri e Audiência de Custódia",
+    "pos-graduacao/direito-militar": "Pós em Direito Militar",
+    "pos-graduacao/seguranca-publica-e-politica-criminal": "Pós em Segurança Pública e Política Criminal",
+    "pos-graduacao/execucao-penal-e-gestao-de-direitos-no-sistema-prisional": "Pós em Execução Penal e Gestão de Direitos no Sistema Prisional",
+    "pos-graduacao/enfermagem-em-atendimento-pre-hospitalar-movel-urgencia-e-emergencia": "Pós em Enfermagem em APH Móvel, Urgência e Emergência",
+    "pos-graduacao/direitos-humanos-das-mulheres-e-justica-de-genero": "Pós em Direitos Humanos das Mulheres e Justiça de Gênero",
+    "pos-graduacao/perspectiva-de-genero-e-novas-fronteiras-do-direito": "Pós em Perspectiva de Gênero e Novas Fronteiras do Direito",
+    "pos-graduacao/gestao-estrategica-das-politicas-para-mulheres": "Pós em Gestão Estratégica das Políticas para Mulheres",
 }
 
 
@@ -89,12 +97,15 @@ def page(path, title, description, body, nodes, *, article=None):
     if article:
         article_meta = f'<meta property="article:published_time" content="{article["date"]}T09:00:00-03:00">\n<meta property="article:modified_time" content="{article.get("updated", article["date"])}T09:00:00-03:00">\n<meta property="article:section" content="{CATEGORIES[article["category"]][0]}">\n<meta name="author" content="Equipe FBE">'
     data = {"@context": "https://schema.org", "@graph": [INSTITUTION] + nodes}
+    # The WhatsApp event follows the site convention: origem plus the course the article promotes, or "blog".
+    tracked = article["cta"][0].rstrip("/").split("/")[-1] if article and "cta" in article else "blog"
+    footer = Template((SOURCE / "templates/footer.html").read_text()).substitute(curso=tracked)
     return render("page.html", title=esc(title), description=esc(description), canonical=BASE + path,
                   og_type="article" if article else "website", image=BASE + image, image_alt=esc(image_alt),
                   structured_data=json.dumps(data, ensure_ascii=False).replace("<", "\\u003c"),
                   article_meta=article_meta, body=body,
                   header=(SOURCE / "templates/header.html").read_text(),
-                  footer=(SOURCE / "templates/footer.html").read_text())
+                  footer=footer)
 
 
 def listing(articles, category=None):
@@ -133,10 +144,14 @@ def article_page(article, articles):
     crumbs, schema = breadcrumb([("Faculdade FBE", "/faculdade/"), ("Blog FBE", BLOG), (category, category_url(a["category"])), (a["title"], url(a))])
     toc = ''.join(f'<a href="#{s["id"]}">{esc(s["title"])}</a>' for s in a["sections"])
     sections = ''.join(f'<section aria-labelledby="{s["id"]}"><h2 id="{s["id"]}">{esc(s["title"])}</h2>{s["html"]}</section>' for s in a["sections"])
-    related = sorted([other for other in articles if other != a], key=lambda other: other["category"] != a["category"])[:3]
+    # Editorial "related" slugs come first; the remaining slots prefer the same category.
+    chosen = [next(other for other in articles if other["slug"] == slug) for slug in a.get("related", [])]
+    related = (chosen + sorted([other for other in articles if other != a and other not in chosen], key=lambda other: other["category"] != a["category"]))[:3]
+    cta_href, cta_label = a.get("cta", ["/faculdade/", "Inscreva-se"])
     body = render("article.html", breadcrumbs=crumbs, category_url=category_url(a["category"]), category=category,
                   headline=esc(a["title"]), description=esc(a["description"]), date=a["date"], display_date=display_date(a["date"]),
                   reading_time=minutes(a), cover=a["image"], image_alt=esc(a["image_alt"]), toc=toc, sections=sections,
+                  cta_href=cta_href, cta_label=esc(cta_label),
                   course_links=''.join(f'<li><a href="/faculdade/{course}/">{COURSES[course]}</a></li>' for course in a["courses"]), related=''.join(card(other) for other in related))
     node = {"@type": "BlogPosting", "@id": BASE + url(a) + "#artigo", "mainEntityOfPage": BASE + url(a),
             "headline": a["title"], "description": a["description"], "image": BASE + a["image"],
@@ -161,6 +176,9 @@ def build(check=False):
         dt.date.fromisoformat(a["date"])
         if "updated" in a:
             assert dt.date.fromisoformat(a["updated"]) >= dt.date.fromisoformat(a["date"])
+        assert set(a.get("related", [])) <= {other["slug"] for other in articles} - {a["slug"]}, a["slug"]
+        if "cta" in a:
+            assert (ROOT / a["cta"][0].lstrip("/") / "index.html").is_file(), a["cta"]
         for course in a["courses"]:
             assert course in COURSES and (ROOT / "faculdade" / course / "index.html").is_file()
     # Stable sorting preserves the editorial order when publication dates are equal.
